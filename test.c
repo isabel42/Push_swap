@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
+/*   Updated: 2023/02/01 17:42:50 by itovar-n         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include "./libft/libft.h"
 
@@ -30,42 +42,21 @@ char	*ft_strjoin_free(char *s1, char *s2)
 	return (sol);
 }
 
-t_list	**ft_lstdef(int argc, char **argv)
+t_list	*ft_lstdef(int argc, char **argv)
 {
 	t_list	*new;
 	t_list	*second;
-	t_list	**lst;
 	int		i;
 
 	new = ft_lstnew(ft_atoi(argv[1]));
-	lst = &new;
 	i = 2;
 	while (i < argc)
 	{
 		second = ft_lstnew(ft_atoi(argv[i]));
-		ft_lstadd_back(lst, second);
+		ft_lstadd_back(&new, second);
 		i++;
 	}
-	return (lst);
-}
-
-int	ft_lstsorted(t_list **lst, int argc)
-{
-	int		i;
-	t_list	*first;
-
-	i = 0;
-	first = *lst;
-	while (first->next)
-	{
-		if (first->content > first->next->content)
-			return (0);
-		first = first->next;
-		i++;
-	}
-	if (i + 1 < argc)
-		return (0);
-	return (1);
+	return (new);
 }
 
 void	r(t_list **lstA)
@@ -134,24 +125,50 @@ void	s(t_list **lstA)
 	}	
 }
 
-char	*ft_intmax(char *argv)
+int	ft_argvdup(char **argv)
 {
-	if (argv[0] == '-')
-		return ("2147483648");
-	return ("2147483647");
+	int	i;
+	int j;
+
+	i = 0;
+	while(argv[i])
+	{
+		if (argv[i][0] == '+')
+			argv[i] = argv[i] + 1;
+		j = 0;
+		while ((argv[j]))
+		{
+			if (argv[j][0] == '+')
+			argv[j] = argv[j] + 1;
+			if (ft_strncmp(argv[i], argv[j], 11) == 0)
+				return(0);
+			j++;
+		}
+	i++;
+	}
+	return (1);
+
 }
 
 int	ft_argvisdigit(char *argv)
 {
 	int	i;
+	int	len;
+	int sign;
 
 	i = 0;
-	while (i < ft_strlen(argv))
+	sign = 0;
+	len = (int) ft_strlen(argv);
+	if (argv[0] == '-' || argv[0] == '+')
+		sign++;
+	while (i + sign < len)
 	{
-		if (ft_isdigit(argv[i]) == 0)
+		if (ft_isdigit(argv[i + sign]) == 0)
 			return (0);
 		i++;
 	}
+	if (i == 0)
+		return(0);
 	return (1);
 }
 
@@ -160,80 +177,73 @@ int	ft_argvisint(char *argv)
 	int		j;
 	int		k;
 	char	*int_max;
-	int		minus;
+	int		sign;
+	int		len;
 
 	j = 0;
 	k = 0;
-	minus = 0;
+	sign = 0;
+	len = (int) ft_strlen(argv);
+	if (argv[0] == '-' || argv[0] == '+')
+		sign++;
 	if (argv[0] == '-')
-		minus++;
-	int_max = ft_intmax(argv);
-	while (j + minus < ft_strlen(argv))
-	{
-		if (argv[j + minus] < int_max[j])
-			k++;
-		if (ft_strlen(argv) - minus > ft_strlen(int_max)
-			|| (argv[j + minus] > int_max[j] && k == 0
-			&& (ft_strlen(argv) - minus) == ft_strlen(int_max)))
-			return (0);
-		j++;
-	}
+		int_max = "-2147483648";
+	else if (argv[0] == '+')
+		int_max = "+2147483647";
+	else 
+		int_max = "2147483647";
+	if (len - sign > 10  || (len - sign == 10 && ft_strncmp(argv, int_max, 10 + sign) > 0))
+		return (0);
 	return (1);
 }
 
-int	ft_checkargv(int argc, char **argv)
+int	ft_lstsorted(t_list *lst, int argc)
 {
-	int		j;
-	char	*int_max;
-	int		minus;
+	int	i;
 
-	while (argc--)
+	i = 0;
+	while (lst->next)
 	{
-		j = 0;
-		minus = 0;
-		if (argv[argc + 1][j] == '-')
-			minus++;
-		int_max = ft_intmax(argv[argc + 1]);
-		while (j + minus < ft_strlen(argv[argc + 1]))
-		{
-			if (ft_isdigit(argv[argc + 1][j + minus]) == 0)
-				return (0);
-			if (ft_strlen(argv[argc + 1]) - minus > ft_strlen(int_max)
-				|| (argv[argc + 1][j + minus] > int_max[j]
-				&& (ft_strlen(argv[argc + 1]) - minus) == ft_strlen(int_max)))
-				return (0);
-			j++;
-		}
+		if (lst->content > lst->next->content)
+			return (0);
+		lst = lst->next;
+		i++;
 	}
+	if (i + 1 < argc)
+		return (0);
 	return (1);
 }
 
 int	main(int argc, char **argv)
 {
-	t_list	**lst_a;
-	t_list	**lst_b;
+	t_list	*lst_a;
+	t_list	*lst_b;
 	t_list	*first;
 	t_list	*second;
-	char	*test;
+	int		i;
 
-	printf("++%d++\n", ft_argvisint(argv[3]));
 	lst_a = ft_lstdef(argc, argv);
-	*lst_b = NULL;
 	if (ft_lstsorted(lst_a, argc - 1) == 1)
-		return (0);
-	p(lst_a, lst_b);
-	p(lst_a, lst_b);
-	first = *lst_a;
+		return(0);
+	i = 1;
+	while (i < argc)
+	{
+		printf("is int: %d\n", ft_argvisint (argv[i]));
+		i++;
+	}
+	printf("char dup: %d\n", ft_argvdup(argv));
+	s(&lst_a);
+	first = lst_a;
 	while (first)
 	{
 		printf("%d\n", first->content);
 		first = first->next;
 	}
 	printf("----\n");
-	second = *lst_b;
-	while (second)
+	/*first = lst_b;
+	while (first)
 	{
-		printf("%d\n", second->content);
-		second = second->next;
-	}
+		printf("%d\n", first->content);
+		first = first->next;
+	}*/
 }
