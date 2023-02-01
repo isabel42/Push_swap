@@ -34,7 +34,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstclear(t_list **lst, void (*del)(int));
 void	ft_lstiter(t_list *lst, void (*f)(int));
 void	ft_lstdelone(t_list *lst, void (*del)(int));
-t_list	*ft_lstmap(t_list *lst, void *(*f)(int), void (*del)(int));
+t_list	*ft_lstmap(t_list *lst, int(*f)(int), void (*del)(int));
 int		ft_lstsize(t_list *lst);
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);

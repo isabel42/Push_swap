@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-t_list	*ft_lstmap(t_list *lst, void *(*f)(int), void (*del)(int))
+t_list	*ft_lstmap(t_list *lst, int(*f)(int), void (*del)(int))
 {
 	t_list	*sol;
 	t_list	*cp;
