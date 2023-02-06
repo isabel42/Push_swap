@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/06 18:58:39 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/06 21:33:41 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,19 @@ char	*ft_strjoin_free(char *s1, char *s2)
 	return (sol);
 }
 
+void ft_mintotop(t_list **lst_a)
+{
+	t_list *last;
+
+	last = ft_lstlast(*lst_a);
+	while (last->content < (*lst_a)->content)
+	{
+		r(lst_a);
+		printf("ra\n");
+		last = ft_lstlast(*lst_a);
+	}
+}
+
 void ft_sort_three (t_list **lst_a, int argc)
 {
 	t_list *last;
@@ -63,7 +76,10 @@ void ft_sort_three (t_list **lst_a, int argc)
 			printf("rra\n");
 		}
 		if (ft_lstsorted(*lst_a, argc - 1) == 0)
+		{
 			ft_sort_three (lst_a, argc);
+		}
+		ft_mintotop(lst_a);
 }
 
 void ft_sort (t_list **lst_a, int argc)
@@ -90,6 +106,7 @@ void ft_sort (t_list **lst_a, int argc)
 	{
 		ft_sort (lst_a, argc);
 	}
+	ft_mintotop(lst_a);
 }
 
 int	main(int argc, char **argv)
@@ -105,9 +122,12 @@ int	main(int argc, char **argv)
 	}
 	lst_a = ft_lstdef(argc, argv);
 	if (ft_lstsorted(lst_a, argc - 1) == 1)
+	{
+		ft_mintotop(&lst_a);
 		return (0);
-	//r(&lst_a);
-	ft_sort (&lst_a, argc);
+	}
+	//ft_sort_three(&lst_a, argc);
+	printf("is sorted: %d\n", ft_lstsorted(lst_a, argc - 1));
 	first = lst_a;
 	while (first)
 	{

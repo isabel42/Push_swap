@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/06 15:24:55 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/06 21:32:57 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,16 +100,18 @@ int	ft_argvok(char **argv)
 int	ft_lstsorted(t_list *lst, int argc)
 {
 	int	i;
+	int b;
 
 	i = 0;
+	b = 0;
 	while (lst->next)
 	{
 		if (lst->content > lst->next->content)
-			return (0);
+			b++;
 		lst = lst->next;
 		i++;
 	}
-	if (i + 1 < argc)
-		return (0);
+	if (i + 1 < argc || b > 1)
+		return (b);
 	return (1);
 }
