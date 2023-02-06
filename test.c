@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/02 11:40:04 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/06 15:24:55 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,7 @@ int	ft_argvdup(char **argv)
 		while ((argv[j]))
 		{
 			if (argv[j][0] == '+')
-			argv[j] = argv[j] + 1;
-			// printf("base : %s, checking: %s strcmp: %d *** ", argv[j], argv[i], ft_strncmp(argv[i], argv[j], 11));
+				argv[j] = argv[j] + 1;
 			if (ft_strncmp(argv[i], argv[j], 11) == 0)
 				return (1);
 			j++;
