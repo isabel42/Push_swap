@@ -1,5 +1,7 @@
-SRCS	= test.c
-		  					  
+SRCS	= main.c \
+			test.c \
+			lst.c
+
 OBJS 	= ${SRCS:.c=.o}
 
 NAME 	= libpushswap.a
