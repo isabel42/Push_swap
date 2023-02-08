@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/06 21:33:41 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/08 13:49:54 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,49 +42,84 @@ char	*ft_strjoin_free(char *s1, char *s2)
 	return (sol);
 }
 
-void ft_mintotop(t_list **lst_a)
+int	ft_lstbreak(t_list *lst_a)
 {
-	t_list *last;
+	int		count;
+	int		prev_content;
+	t_list	*first;
 
-	last = ft_lstlast(*lst_a);
-	while (last->content < (*lst_a)->content)
+	count = 0;
+	first = lst_a;
+	prev_content = ft_lstlast(lst_a)->content;
+	while (first->next)
 	{
-		r(lst_a);
-		printf("ra\n");
-		last = ft_lstlast(*lst_a);
+		if (prev_content > first->content)
+			break ;
+		count++;
+		first = first->next;
 	}
+	return (count);
 }
 
-void ft_sort_three (t_list **lst_a, int argc)
+void	ft_mintotop(t_list **lst_a)
 {
-	t_list *last;
+	t_list	*last;
+	int		count;
+	int		size;
 
+	count = ft_lstbreak(*lst_a);
+	size = ft_lstsize(*lst_a);
 	last = ft_lstlast(*lst_a);
-		if( last->content < (*lst_a)->content)
+	if (2 * count < size)
+	{
+		while (last->content < (*lst_a)->content)
 		{
 			r(lst_a);
 			printf("ra\n");
+			last = ft_lstlast(*lst_a);
 		}
-		else if ((*lst_a)->content > (*lst_a)->next->content)
-		{
-			s(lst_a);
-			printf("sa\n");
-		}
-		else
+	}
+	else
+	{
+		while (last->content < (*lst_a)->content)
 		{
 			rr(lst_a);
 			printf("rra\n");
+			last = ft_lstlast(*lst_a);
 		}
-		if (ft_lstsorted(*lst_a, argc - 1) == 0)
-		{
-			ft_sort_three (lst_a, argc);
-		}
-		ft_mintotop(lst_a);
+	}
 }
 
-void ft_sort (t_list **lst_a, int argc)
+void	ft_sort_three(t_list **lst_a, int argc)
 {
-	t_list *last;
+	t_list	*last;
+
+	last = ft_lstlast(*lst_a);
+	if (last->content < (*lst_a)->content)
+	{
+		r(lst_a);
+		printf("ra\n");
+	}
+	else if ((*lst_a)->content > (*lst_a)->next->content)
+	{
+		s(lst_a);
+		printf("sa\n");
+	}
+	else
+	{
+		rr(lst_a);
+		printf("rra\n");
+	}
+	if (ft_lstsorted(*lst_a, argc - 1) == 0)
+	{
+		ft_sort_three (lst_a, argc);
+	}
+	ft_mintotop(lst_a);
+}
+
+void	ft_sort(t_list **lst_a, int argc, int i)
+{
+	t_list	*last;
 
 	last = ft_lstlast(*lst_a);
 	if ((*lst_a)->content > (*lst_a)->next->content)
@@ -102,9 +137,10 @@ void ft_sort (t_list **lst_a, int argc)
 		rr(lst_a);
 		printf("rra\n");
 	}
-	if (ft_lstsorted(*lst_a, argc - 1) == 0)
+	if (ft_lstsorted(*lst_a, argc - 1) == 0 && i < 20)
 	{
-		ft_sort (lst_a, argc);
+		i++;
+		ft_sort (lst_a, argc, i);
 	}
 	ft_mintotop(lst_a);
 }
@@ -126,8 +162,7 @@ int	main(int argc, char **argv)
 		ft_mintotop(&lst_a);
 		return (0);
 	}
-	//ft_sort_three(&lst_a, argc);
-	printf("is sorted: %d\n", ft_lstsorted(lst_a, argc - 1));
+	ft_sort(&lst_a, argc, 0);
 	first = lst_a;
 	while (first)
 	{
