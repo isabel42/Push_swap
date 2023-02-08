@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/08 13:49:54 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/08 14:06:28 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,11 @@ void	ft_mintotop(t_list **lst_a)
 	}
 }
 
-void	ft_sort_three(t_list **lst_a, int argc)
+void	ft_sort_three(t_list **lst_a)//, int argc)
 {
+	s(lst_a);
+	printf("sa\n");
+	/*
 	t_list	*last;
 
 	last = ft_lstlast(*lst_a);
@@ -113,7 +116,7 @@ void	ft_sort_three(t_list **lst_a, int argc)
 	if (ft_lstsorted(*lst_a, argc - 1) == 0)
 	{
 		ft_sort_three (lst_a, argc);
-	}
+	}*/
 	ft_mintotop(lst_a);
 }
 
@@ -162,7 +165,7 @@ int	main(int argc, char **argv)
 		ft_mintotop(&lst_a);
 		return (0);
 	}
-	ft_sort(&lst_a, argc, 0);
+	ft_sort_three(&lst_a);//, argc, 0);
 	first = lst_a;
 	while (first)
 	{
