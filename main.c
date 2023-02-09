@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/09 13:18:45 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:53:45 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ int	main(int argc, char **argv)
 	while(i < 252)
 	{
 		j = 0;
-		while(j < 5)
+		while(j < 6)
 		{
 			printf("%d-", table[i][j]);
 			j++;

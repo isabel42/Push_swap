@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/09 13:36:28 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/09 14:54:03 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ int	**ft_combi_alloc(int **table, int value_max, int size)
 	int	i;
 	int	j;
 
-	j = 0;
 	i = 1;
 	while (table[i - 1][0] < value_max - size + 1)
 	{
@@ -75,24 +74,36 @@ int	**ft_combi_alloc(int **table, int value_max, int size)
 		while (j < size - 1)
 		{
 			if (table[i - 1][j + 1] < value_max - (size - (j + 1 + 1)))
-				table[i][j] = table[i - 1][j];
-			else
 			{
-				table[i][j] = table[i - 1][j] + 1;
+				table[i][j] = table[i - 1][j];
 				j++;
-				break ;
+				continue ;
 			}
-			j++;
-		}
-		if (j == size - 1 && table[i - 1][j] < value_max - (size - (j + 1)))
-		{
 			table[i][j] = table[i - 1][j] + 1;
 			j++;
+			break ;
 		}
-		j--;
-		while (j++ < size)
-			table[i][j] = table[i][j - 1] + 1;
+		ft_combi_alloc_bis(table, value_max, j, i);
 		i++;
 	}
+	return (table);
+}
+
+int	**ft_combi_alloc_bis(int **table, int value_max, int j, int i)
+{
+	int	size;
+
+	size = 0;
+	while (table[0][size] > 0)
+			size++;
+	if (j == size - 1 && table[i - 1][j] < value_max - (size - (j + 1)))
+	{
+		table[i][j] = table[i - 1][j] + 1;
+		j++;
+	}
+	j--;
+	while (j++ < size)
+		table[i][j] = table[i][j - 1] + 1;
+	table[i][size] = 0;
 	return (table);
 }
