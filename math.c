@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/08 19:09:27 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/09 10:21:27 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ int	**ft_combi_malloc(int value_max, int size)
 	}
 	while (size--)
 		table[0][size - 1] = size;
-		
-		
 	return (table);
 }
 
@@ -68,9 +66,16 @@ int	**ft_combi(int value_max, int size)
 {
 	int	i;
 	int	j;
+	int	**table;
 
-	i = size;
-	j = 1;
-	while(table)
+	j = 0;
+	i = 1;
+	table = ft_combi_malloc(value_max, size);
+	(while (table[i-1][0] != value_max - size + 1)
+	{
+		if (j < size -1 && table)
+	}
+	)
+
 
 }
