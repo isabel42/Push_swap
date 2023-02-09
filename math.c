@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/08 18:15:50 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/08 19:09:27 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,25 +33,44 @@ int	ft_recursive_factorial(int nb)
 		return (1);
 	return (nb * ft_recursive_factorial (nb - 1));
 }
-int **ft_combi_malloc(int value_max, int size)
+
+int	**ft_combi_malloc(int value_max, int size)
 {
-	int **table;
-	int combinations;
-	int i;
+	int	**table;
+	int	combinations;
+	int	i;
 
 	i = 0;
-	combinations = ft_recursive_factorial(value_max) / (ft_recursive_factorial(size) * ft_recursive_factorial(value_max - size));
+	combinations = ft_recursive_factorial(value_max)
+		/ (ft_recursive_factorial(size)
+			* ft_recursive_factorial(value_max - size));
 	*table = malloc(sizeof(int) * combinations);
 	if (!table)
 		return (NULL);
-	while(i < combinations)
+	while (i < combinations)
 	{
 		table[i] = malloc(sizeof(int) * size);
-		if(!table)
+		if (!table)
 		{
 			ft_free (table, i);
-			return(NULL);
+			return (NULL);
 		}
 		i++;
 	}
+	while (size--)
+		table[0][size - 1] = size;
+		
+		
+	return (table);
+}
+
+int	**ft_combi(int value_max, int size)
+{
+	int	i;
+	int	j;
+
+	i = size;
+	j = 1;
+	while(table)
+
 }
