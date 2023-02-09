@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/08 18:04:17 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/09 13:18:45 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,15 +127,34 @@ void	ft_sort(t_list **lst_a, int argc, int i)
 
 int	main(int argc, char **argv)
 {
-	t_list	*lst_a;
-	t_list	*first;
+	//t_list	*lst_a;
+	//t_list	*first;
+	int		**table;
+	int i;
+	int j;
 
-	printf("**********\n");
 	if (ft_argvok(argv) == 0)
 	{
 		printf("%s", "Error\n");
+		printf("%d", argc);
 		return (0);
 	}
+	i = 0;
+	j = 0;
+	table = ft_combi(10, 5);
+	while(i < 252)
+	{
+		j = 0;
+		while(j < 5)
+		{
+			printf("%d-", table[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
+/*
+	
 	lst_a = ft_lstdef(argc, argv);
 	if (ft_lstsorted(lst_a, argc - 1) == 1)
 	{
@@ -150,7 +169,7 @@ int	main(int argc, char **argv)
 		first = first->next;
 	}
 	printf("----\n");
-	/*first = lst_b;
+	first = lst_b;
 	while (first)
 	{
 		printf("%d\n", first->content);

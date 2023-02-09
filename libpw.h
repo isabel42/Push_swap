@@ -31,4 +31,11 @@ void	rr(t_list **lstA);
 void	p(t_list **lstA, t_list **lstB);
 void	s(t_list **lstA);
 
+void    ft_free_int(int **s, int j);
+int		ft_recursive_factorial(int nb);
+int		**ft_combi(int value_max, int size);
+int		**ft_combi_alloc(int **table, int value_max, int size);
+int		**ft_combi_alloc_1(int **table, int value_max, int size);
+int		**ft_combi_alloc_2(int **table, int value_max, int size);
+
 #endif

@@ -1,6 +1,7 @@
 SRCS	= main.c \
 			test.c \
-			lst.c
+			lst.c \
+			math.c
 
 OBJS 	= ${SRCS:.c=.o}
 

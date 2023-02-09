@@ -6,14 +6,14 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/09 10:21:27 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/09 13:36:28 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
 #include "libpw.h"
 
-void	ft_free(char **s, int j)
+void	ft_free_int(int **s, int j)
 {
 	int	i;
 
@@ -34,48 +34,65 @@ int	ft_recursive_factorial(int nb)
 	return (nb * ft_recursive_factorial (nb - 1));
 }
 
-int	**ft_combi_malloc(int value_max, int size)
+int	**ft_combi(int value_max, int size)
 {
 	int	**table;
 	int	combinations;
 	int	i;
 
-	i = 0;
+	i = size + 1;
 	combinations = ft_recursive_factorial(value_max)
 		/ (ft_recursive_factorial(size)
 			* ft_recursive_factorial(value_max - size));
-	*table = malloc(sizeof(int) * combinations);
+	table = ft_calloc(sizeof(*table), combinations + 1);
 	if (!table)
 		return (NULL);
-	while (i < combinations)
+	while (combinations--)
 	{
-		table[i] = malloc(sizeof(int) * size);
+		table[combinations] = ft_calloc(sizeof(table), size);
 		if (!table)
 		{
-			ft_free (table, i);
+			ft_free_int (table, combinations);
 			return (NULL);
 		}
-		i++;
 	}
-	while (size--)
-		table[0][size - 1] = size;
+	while (i--)
+		table[0][i - 1] = i;
+	table = ft_combi_alloc(table, value_max, size);
 	return (table);
 }
 
-int	**ft_combi(int value_max, int size)
+int	**ft_combi_alloc(int **table, int value_max, int size)
 {
 	int	i;
 	int	j;
-	int	**table;
 
 	j = 0;
 	i = 1;
-	table = ft_combi_malloc(value_max, size);
-	(while (table[i-1][0] != value_max - size + 1)
+	while (table[i - 1][0] < value_max - size + 1)
 	{
-		if (j < size -1 && table)
+		j = 0;
+		while (j < size - 1)
+		{
+			if (table[i - 1][j + 1] < value_max - (size - (j + 1 + 1)))
+				table[i][j] = table[i - 1][j];
+			else
+			{
+				table[i][j] = table[i - 1][j] + 1;
+				j++;
+				break ;
+			}
+			j++;
+		}
+		if (j == size - 1 && table[i - 1][j] < value_max - (size - (j + 1)))
+		{
+			table[i][j] = table[i - 1][j] + 1;
+			j++;
+		}
+		j--;
+		while (j++ < size)
+			table[i][j] = table[i][j - 1] + 1;
+		i++;
 	}
-	)
-
-
+	return (table);
 }
