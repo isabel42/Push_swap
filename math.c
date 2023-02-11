@@ -6,24 +6,12 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/09 14:54:03 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/11 15:28:50 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
 #include "libpw.h"
-
-void	ft_free_int(int **s, int j)
-{
-	int	i;
-
-	i = 0;
-	while (i < j)
-	{
-		free(s[i]);
-	}
-	free(s);
-}
 
 int	ft_recursive_factorial(int nb)
 {	
@@ -49,10 +37,10 @@ int	**ft_combi(int value_max, int size)
 		return (NULL);
 	while (combinations--)
 	{
-		table[combinations] = ft_calloc(sizeof(table), size);
+		table[combinations] = ft_calloc(sizeof(table), size + 1);
 		if (!table)
 		{
-			ft_free_int (table, combinations);
+			ft_free_pp_int (table);
 			return (NULL);
 		}
 	}

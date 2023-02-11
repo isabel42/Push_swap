@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/09 14:53:45 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/11 15:40:09 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,7 @@ void	ft_sort(t_list **lst_a, int argc, int i)
 		rr(lst_a);
 		printf("rra\n");
 	}
-	if (ft_lstsorted(*lst_a, argc - 1) == 0 && i < 20)
+	if (ft_lstsorted(*lst_a) == 0 && i < 20)
 	{
 		i++;
 		ft_sort (lst_a, argc, i);
@@ -127,21 +127,53 @@ void	ft_sort(t_list **lst_a, int argc, int i)
 
 int	main(int argc, char **argv)
 {
-	//t_list	*lst_a;
-	//t_list	*first;
-	int		**table;
+	t_list	*lst_a;
+	//t_list	*lst_b;
+	t_list	*first;
+	//int		**table;
+	int		*best;
 	int i;
-	int j;
+	//int j;
 
 	if (ft_argvok(argv) == 0)
 	{
 		printf("%s", "Error\n");
-		printf("%d", argc);
 		return (0);
 	}
 	i = 0;
-	j = 0;
-	table = ft_combi(10, 5);
+	//j = 0;
+	//table = ft_combi(10, 5);
+	lst_a = ft_lstdef(argc, argv);
+	//lst_b = ft_linetlstbuild(table[2], lst_a, 10);
+	best = ft_longestlist(lst_a, 10);
+	first = lst_a;
+
+	
+	while(i < 5)
+	{
+		printf("%d-", best[i]);
+		i++;
+	}
+	printf("\n");
+	
+	while (first)
+	{
+		printf("%d-", first->content);
+		//printf("%d-\n", table[251][0]);
+		//printf("%d-\n", best[2]);
+
+		first = first->next;
+	}
+	
+	/*
+	printf("----\n");
+	first = lst_b;
+	while (first)
+	{
+		printf("%d\n", first->content);
+		first = first->next;
+	}
+	
 	while(i < 252)
 	{
 		j = 0;
@@ -153,8 +185,6 @@ int	main(int argc, char **argv)
 		printf("\n");
 		i++;
 	}
-/*
-	
 	lst_a = ft_lstdef(argc, argv);
 	if (ft_lstsorted(lst_a, argc - 1) == 1)
 	{
