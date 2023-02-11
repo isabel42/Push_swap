@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/11 19:54:22 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/11 23:27:41 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,21 +130,24 @@ int	main(int argc, char **argv)
 	t_list	*lst_a;
 	t_list	*lst_b;
 	t_list	*first;
+	t_list	*last;
 	int		*best;
+	int		**table;
 	int i;
-	// int j;
+	int j;
 
 	if (ft_argvok(argv) == 0)
 	{
 		printf("%s", "Error\n");
 		return (0);
 	}
-	i = 1;
-	// j = 0;
 	lst_a = ft_lstdef(argc, argv);
 	lst_b = NULL;
-	best = ft_longestlist(lst_a, 13);
-	/*while (i <= 10)
+	table = ft_combi(10, 1);
+	best = ft_longestlist(lst_a, 10);
+	j = 0;
+	i = 1;
+	while (i <= 10)
 	{
 		if(i == best [j])
 		{
@@ -152,24 +155,51 @@ int	main(int argc, char **argv)
 			j++;
 		}
 		else
+		{
+			while((lst_b) && lst_b content)
 			p(&lst_a, &lst_b);
+		}
+			
 		i++;
-	}*/
-	first = lst_a;
+	}
+	if(ft_lstsorted(lst_a) == 1)
+	{
+		while (lst_b)
+		{
+			last = ft_lstlast(lst_a);
+			if ((lst_a->content > lst_b->content && lst_b->content > last->content) || ((lst_a->content  > lst_b->content || lst_b->content > last->content) && ft_lstsorted_s(lst_a) == 1) )
+				p(&lst_b, &lst_a);
+			 else
+				 rr(&lst_a);
+		}
+	}
 	i = 0;
-	while( best[i] != 0)
+	printf("\nTable: ");
+	while( i < 1)
+	{	
+		j = 0;
+		while(j < 1)
+		{
+			printf("%d, ", table[i][j]);
+			j++;
+		}
+		i++;
+	}
+	printf("\nBest: ");
+	i = 0;
+	while( best[i] > 0)
 	{
 		printf("%d, ", best[i]);
 		i++;
 	}
-	printf("\n----\nA:\n");
+	printf("\n----\nA:");
 	first = lst_a;
 	while (first)
 	{
 		printf("%d, ", first->content);
 		first = first->next;
 	}
-	printf("\n----\nB:\n");
+	printf("\nB:");
 	first = lst_b;
 	while (first)
 	{

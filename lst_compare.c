@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/11 19:52:36 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/11 22:07:45 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ int	*ft_longestlist(t_list *lst, int value_max)
 			ft_free_pp_int(table);
 			return (sol);
 		}
+		ft_free_pp_int(table);
 	}
-	ft_free_pp_int(table);
 	return (ft_calloc(j + 1, sizeof(*table)));
 }
 
