@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/11 14:44:28 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/11 15:57:59 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int	ft_lstsorted_s(t_list *lst)
 
 	i = 0;
 	b = 0;
+	if (!lst)
+		return(0);
 	while (lst->next)
 	{
 		if (lst->content > lst->next->content)

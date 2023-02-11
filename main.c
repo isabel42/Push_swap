@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/11 15:40:09 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/11 19:54:22 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,81 +128,53 @@ void	ft_sort(t_list **lst_a, int argc, int i)
 int	main(int argc, char **argv)
 {
 	t_list	*lst_a;
-	//t_list	*lst_b;
+	t_list	*lst_b;
 	t_list	*first;
-	//int		**table;
 	int		*best;
 	int i;
-	//int j;
+	// int j;
 
 	if (ft_argvok(argv) == 0)
 	{
 		printf("%s", "Error\n");
 		return (0);
 	}
-	i = 0;
-	//j = 0;
-	//table = ft_combi(10, 5);
+	i = 1;
+	// j = 0;
 	lst_a = ft_lstdef(argc, argv);
-	//lst_b = ft_linetlstbuild(table[2], lst_a, 10);
-	best = ft_longestlist(lst_a, 10);
-	first = lst_a;
-
-	
-	while(i < 5)
+	lst_b = NULL;
+	best = ft_longestlist(lst_a, 13);
+	/*while (i <= 10)
 	{
-		printf("%d-", best[i]);
-		i++;
-	}
-	printf("\n");
-	
-	while (first)
-	{
-		printf("%d-", first->content);
-		//printf("%d-\n", table[251][0]);
-		//printf("%d-\n", best[2]);
-
-		first = first->next;
-	}
-	
-	/*
-	printf("----\n");
-	first = lst_b;
-	while (first)
-	{
-		printf("%d\n", first->content);
-		first = first->next;
-	}
-	
-	while(i < 252)
-	{
-		j = 0;
-		while(j < 6)
+		if(i == best [j])
 		{
-			printf("%d-", table[i][j]);
+			r(&lst_a);
 			j++;
 		}
-		printf("\n");
+		else
+			p(&lst_a, &lst_b);
+		i++;
+	}*/
+	first = lst_a;
+	i = 0;
+	while( best[i] != 0)
+	{
+		printf("%d, ", best[i]);
 		i++;
 	}
-	lst_a = ft_lstdef(argc, argv);
-	if (ft_lstsorted(lst_a, argc - 1) == 1)
-	{
-		ft_mintotop(&lst_a);
-		return (0);
-	}
-	ft_sort_three(&lst_a);//, argc, 0);
+	printf("\n----\nA:\n");
 	first = lst_a;
 	while (first)
 	{
-		printf("%d\n", first->content);
+		printf("%d, ", first->content);
 		first = first->next;
 	}
-	printf("----\n");
+	printf("\n----\nB:\n");
 	first = lst_b;
 	while (first)
 	{
-		printf("%d\n", first->content);
+		printf("%d, ", first->content);
 		first = first->next;
-	}*/
+	}
+	printf("\n");
 }

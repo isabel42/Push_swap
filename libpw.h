@@ -38,12 +38,14 @@ void	s(t_list **lstA);
 void    ft_free_pp_int(int **s);
 void	ft_free_lst(t_list *lst);
 
-int		ft_recursive_factorial(int nb);
+int		ft_fact(int nb);
 int		**ft_combi(int value_max, int size);
 int		**ft_combi_alloc(int **table, int value_max, int size);
 int 	**ft_combi_alloc_bis(int **table, int value_max, int j, int i);
 
 t_list	*ft_linetlstbuild(int *combi, t_list *lst, int value_max);
 int 	*ft_longestlist(t_list *lst, int value_max);
+int		*ft_longestlist_bis(int combi, int **table, t_list *lst, int value_max);
+int		*ft_intcpy(int *table);
 
 #endif
