@@ -23,8 +23,14 @@ int		ft_argvisint(char *argv);
 int		ft_argvok(char **argv);
 
 int		ft_lstsorted(t_list *lst);
+int		ft_lstsorted_rev(t_list *lst);
 int		ft_lstsorted_s(t_list *lst);
 int		ft_lstsorted_srev(t_list *lst);
+
+int		ft_lst_i(t_list *lst_a, int i);
+int		ft_lstbreak(t_list *lst_a);
+void	ft_mintotop(t_list **lst_a);
+void	ft_itotop(t_list **lst_a, int i);
 
 char	*ft_strjoin_free(char *s1, char *s2);
 
@@ -47,5 +53,7 @@ t_list	*ft_linetlstbuild(int *combi, t_list *lst, int value_max);
 int 	*ft_longestlist(t_list *lst, int value_max);
 int		*ft_longestlist_bis(int combi, int **table, t_list *lst, int value_max);
 int		*ft_intcpy(int *table);
+
+void ft_ns_tob(t_list **lst_a, t_list **lst_b, int value_max);
 
 #endif

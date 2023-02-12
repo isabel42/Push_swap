@@ -1,10 +1,12 @@
 SRCS	= main.c \
 			test.c \
 			lst.c \
+			lst_2.c \
 			lst_issorted.c \
 			free.c \
-			math.c \
-			lst_compare.c
+			combi.c \
+			longest_combi.c \
+			sort.c
 
 OBJS 	= ${SRCS:.c=.o}
 

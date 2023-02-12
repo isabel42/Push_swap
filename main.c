@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/11 23:27:41 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/12 22:58:28 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,54 +40,6 @@ char	*ft_strjoin_free(char *s1, char *s2)
 	free(s1);
 	sol [i] = '\0';
 	return (sol);
-}
-
-int	ft_lstbreak(t_list *lst_a)
-{
-	int		count;
-	int		prev_content;
-	t_list	*first;
-
-	count = 0;
-	first = lst_a;
-	prev_content = ft_lstlast(lst_a)->content;
-	while (first->next)
-	{
-		if (prev_content > first->content)
-			break ;
-		count++;
-		first = first->next;
-	}
-	return (count);
-}
-
-void	ft_mintotop(t_list **lst_a)
-{
-	t_list	*last;
-	int		count;
-	int		size;
-
-	count = ft_lstbreak(*lst_a);
-	size = ft_lstsize(*lst_a);
-	last = ft_lstlast(*lst_a);
-	if (2 * count < size)
-	{
-		while (last->content < (*lst_a)->content)
-		{
-			r(lst_a);
-			printf("ra\n");
-			last = ft_lstlast(*lst_a);
-		}
-	}
-	else
-	{
-		while (last->content < (*lst_a)->content)
-		{
-			rr(lst_a);
-			printf("rra\n");
-			last = ft_lstlast(*lst_a);
-		}
-	}
 }
 
 void	ft_sort_three(t_list **lst_a)//, int argc)
@@ -127,41 +79,39 @@ void	ft_sort(t_list **lst_a, int argc, int i)
 
 int	main(int argc, char **argv)
 {
+	// int		value_max;
 	t_list	*lst_a;
-	t_list	*lst_b;
+	// t_list	*lst_b;
 	t_list	*first;
-	t_list	*last;
-	int		*best;
-	int		**table;
-	int i;
-	int j;
+	// t_list	*last;
+	// int		**table;
+	// int		*best;
+	// int i;
+	// int j;
 
+	// value_max = 10;
 	if (ft_argvok(argv) == 0)
 	{
 		printf("%s", "Error\n");
 		return (0);
 	}
 	lst_a = ft_lstdef(argc, argv);
-	lst_b = NULL;
-	table = ft_combi(10, 1);
-	best = ft_longestlist(lst_a, 10);
+	printf("Count to i: %d\n", ft_lst_i(lst_a, 5));
+	ft_itotop(&lst_a, 5);
+printf("\n----\nA:");
+	first = lst_a;
+	while (first)
+	{
+		printf("%d, ", first->content);
+		first = first->next;
+	}
+	/*
+
+	table = ft_combi(value_max, 1);
+	best = ft_longestlist(lst_a, value_max);
 	j = 0;
 	i = 1;
-	while (i <= 10)
-	{
-		if(i == best [j])
-		{
-			r(&lst_a);
-			j++;
-		}
-		else
-		{
-			while((lst_b) && lst_b content)
-			p(&lst_a, &lst_b);
-		}
-			
-		i++;
-	}
+	ft_ns_tob(&lst_a, &lst_b, value_max);
 	if(ft_lstsorted(lst_a) == 1)
 	{
 		while (lst_b)
@@ -207,4 +157,6 @@ int	main(int argc, char **argv)
 		first = first->next;
 	}
 	printf("\n");
+	printf("break: %d", ft_lstbreak(lst_a));
+*/
 }
