@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/13 13:41:02 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:39:25 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,37 @@ int	ft_lst_i(t_list *lst_a, int i)
 
 	count = 0;
 	first = lst_a;
-	while (first->next)
+	if ((ft_lstsorted_rev(first) == 1 && (ft_lstlast(first)->content > i
+				&& first->content < i)) || (ft_lstsorted(first) == 1
+			&& (ft_lstlast(first)->content < i && first->content > i)))
+		return (0);
+	while (lst_a->next)
 	{
-		if (((first->content > i && i > first->next->content)
-				|| ((i < ft_lstlast(first)->content || i > first->content)
-					&& count == 0 && ft_lstsorted_srev(first) == 1))
-			|| ((first->content < i && i < first->next->content)
-				|| ((i > ft_lstlast(first)->content || i < first->content)
-					&& count == 0 && ft_lstsorted_s(first) == 1)))
+		if (ft_lst_i_bis(lst_a, i, count, first) == 1)
 		{
-			if (count > 0)
-				count++;
+			count++;
 			break ;
 		}
 		count++;
-		first = first->next;
+		lst_a = lst_a->next;
 	}
 	return (count);
+}
+
+int	ft_lst_i_bis(t_list *lst_a, int i, int count, t_list *first)
+{
+	if ((ft_lstsorted_rev(first) == 1
+			&& ((lst_a->content > i && lst_a->next->content < i)
+				|| (count == ft_lstbreak(first) - 1 && count != 0
+					&& ((lst_a->content > i && lst_a->next->content > i)
+						|| (lst_a->content < i && lst_a->next->content < i)))))
+		|| (ft_lstsorted(first) == 1
+			&& ((lst_a->content < i && lst_a->next->content > i)
+				|| (count == ft_lstbreak(first) - 1 && count != 0
+					&& ((lst_a->content < i && lst_a->next->content < i)
+						|| (lst_a->content > i && lst_a->next->content > i))))))
+		return (1);
+	return (0);
 }
 
 int	ft_lstbreak(t_list *lst_a)
@@ -51,7 +65,8 @@ int	ft_lstbreak(t_list *lst_a)
 	while (lst_a->next)
 	{
 		if ((ft_lstsorted(first) == 1 && lst_a->content > lst_a->next->content)
-			|| (ft_lstsorted_rev(first) == 1 && lst_a->content < lst_a->next->content))
+			|| (ft_lstsorted_rev(first) == 1
+				&& lst_a->content < lst_a->next->content))
 		{
 			count++;
 			break ;
@@ -73,18 +88,18 @@ void	ft_breaktotop(t_list **lst_a)
 	j = 0;
 	if (2 * count < size)
 	{
-		while (j++ < count)
+		while (j < count)
 		{
 			r(lst_a);
-			// j++;
+			j++;
 		}
 	}
 	else
 	{
-		while (j++ < size - count)
+		while (j < size - count)
 		{
 			rr(lst_a);
-			// j++;
+			j++;
 		}
 	}
 }
@@ -103,7 +118,6 @@ void	ft_itotop(t_list **lst_a, int i)
 		while (j < count)
 		{
 			r(lst_a);
-			printf("ra\n");
 			j++;
 		}
 	}
@@ -112,7 +126,6 @@ void	ft_itotop(t_list **lst_a, int i)
 		while (j < size - count)
 		{
 			rr(lst_a);
-			printf("rra\n");
 			j++;
 		}
 	}

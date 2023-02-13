@@ -28,6 +28,7 @@ int		ft_lstsorted_s(t_list *lst);
 int		ft_lstsorted_srev(t_list *lst);
 
 int		ft_lst_i(t_list *lst_a, int i);
+int		ft_lst_i_bis(t_list *lst_a, int i, int count, t_list *first);
 int		ft_lstbreak(t_list *lst_a);
 void	ft_breaktotop(t_list **lst_a);
 void	ft_itotop(t_list **lst_a, int i);

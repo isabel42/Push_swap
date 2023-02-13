@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/12 22:58:28 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/13 15:21:19 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,35 +46,7 @@ void	ft_sort_three(t_list **lst_a)//, int argc)
 {
 	s(lst_a);
 	printf("sa\n");
-	ft_mintotop(lst_a);
-}
-
-void	ft_sort(t_list **lst_a, int argc, int i)
-{
-	t_list	*last;
-
-	last = ft_lstlast(*lst_a);
-	if ((*lst_a)->content > (*lst_a)->next->content)
-	{
-		s(lst_a);
-		printf("sa\n");
-	}
-	else if (last->content < (*lst_a)->content)
-	{
-		r(lst_a);
-		printf("ra\n");
-	}
-	else
-	{
-		rr(lst_a);
-		printf("rra\n");
-	}
-	if (ft_lstsorted(*lst_a) == 0 && i < 20)
-	{
-		i++;
-		ft_sort (lst_a, argc, i);
-	}
-	ft_mintotop(lst_a);
+	ft_breaktotop(lst_a);
 }
 
 int	main(int argc, char **argv)
@@ -96,9 +68,10 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	lst_a = ft_lstdef(argc, argv);
-	printf("Count to i: %d\n", ft_lst_i(lst_a, 5));
-	ft_itotop(&lst_a, 5);
-printf("\n----\nA:");
+	printf("Count to i: %d\n", ft_lst_i(lst_a, 4));
+	printf("Count to break: %d\n", ft_lstbreak(lst_a));
+	ft_itotop(&lst_a, 4);
+	printf("\n----\nA:");
 	first = lst_a;
 	while (first)
 	{
