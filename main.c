@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/13 16:02:57 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:42:33 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,8 @@ int	main(int argc, char **argv)
 	t_list	*lst_b;
 	t_list	*first;
 	// t_list	*last;
-	int		**table;
-	int		*best;
-	int i;
-	int j;
 
-	value_max = 6;
+	value_max = 3;
 	if (ft_argvok(argv) == 0)
 	{
 		printf("%s", "Error\n");
@@ -69,10 +65,7 @@ int	main(int argc, char **argv)
 	}
 	lst_a = ft_lstdef(argc, argv);
 	lst_b = NULL;
-	table = ft_combi(value_max, 1);
-	best = ft_longestlist(lst_a, value_max);
-	j = 0;
-	i = 1;
+	printf("To i: %d \n", ft_lst_i(lst_a, 2));
 	ft_ns_tob(&lst_a, &lst_b, value_max);
 	// if(ft_lstsorted(lst_a) == 1)
 	// {
@@ -82,25 +75,6 @@ int	main(int argc, char **argv)
 	// 		p(&lst_b, &lst_a);
 	// 	}
 	// }
-	i = 0;
-	printf("\nTable: ");
-	while( i < 1)
-	{	
-		j = 0;
-		while(j < 1)
-		{
-			printf("%d, ", table[i][j]);
-			j++;
-		}
-		i++;
-	}
-	printf("\nBest: ");
-	i = 0;
-	while( best[i] > 0)
-	{
-		printf("%d, ", best[i]);
-		i++;
-	}
 	printf("\n----\nA:");
 	first = lst_a;
 	while (first)

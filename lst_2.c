@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/13 16:32:50 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:09:51 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	ft_lst_i(t_list *lst_a, int i)
 	first = lst_a;
 	if (lst_a)
 	{
-		if ((ft_lstsorted_rev(first) == 1 && (ft_lstlast(first)->content > i
+		if ((ft_lstsorted_srev(first) == 1 && (ft_lstlast(first)->content > i
 					&& first->content < i))
-			|| (ft_lstsorted(first) == 1 && (ft_lstlast(first)->content < i
+			|| (ft_lstsorted_s(first) == 1 && (ft_lstlast(first)->content < i
 					&& first->content > i)))
 			return (0);
 		while (lst_a->next)
