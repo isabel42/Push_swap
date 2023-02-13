@@ -29,7 +29,7 @@ int		ft_lstsorted_srev(t_list *lst);
 
 int		ft_lst_i(t_list *lst_a, int i);
 int		ft_lstbreak(t_list *lst_a);
-void	ft_mintotop(t_list **lst_a);
+void	ft_breaktotop(t_list **lst_a);
 void	ft_itotop(t_list **lst_a, int i);
 
 char	*ft_strjoin_free(char *s1, char *s2);
