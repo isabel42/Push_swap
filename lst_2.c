@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/13 09:51:51 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/13 13:41:02 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,18 @@ int	ft_lstbreak(t_list *lst_a)
 	first = lst_a;
 	if (ft_lstsorted_s(first) == 1 || ft_lstsorted_srev(first) == 1)
 		return (0);
-	while (first->next)
+	while (lst_a->next)
 	{
-		if ((first->content > first->next->content
-				&& ft_lstsorted(first) == 1)
-			|| (first->content < first->next->content
-				&& ft_lstsorted_rev(first) == 1))
+		if ((ft_lstsorted(first) == 1 && lst_a->content > lst_a->next->content)
+			|| (ft_lstsorted_rev(first) == 1 && lst_a->content < lst_a->next->content))
+		{
+			count++;
 			break ;
+		}
 		count++;
-		first = first->next;
+		lst_a = lst_a->next;
 	}
-	return (count + 1);
+	return (count);
 }
 
 void	ft_breaktotop(t_list **lst_a)
@@ -72,20 +73,18 @@ void	ft_breaktotop(t_list **lst_a)
 	j = 0;
 	if (2 * count < size)
 	{
-		while (j < count)
+		while (j++ < count)
 		{
 			r(lst_a);
-			printf("ra\n");
-			j++;
+			// j++;
 		}
 	}
 	else
 	{
-		while (j < size - count)
+		while (j++ < size - count)
 		{
 			rr(lst_a);
-			printf("rra\n");
-			j++;
+			// j++;
 		}
 	}
 }
