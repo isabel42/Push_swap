@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/12 20:35:22 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/13 16:30:36 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,13 @@ void	ft_ns_tob(t_list **lst_a, t_list **lst_b, int value_max)
 		{
 			r(lst_a);
 			j++;
+			i++;
+			continue ;
 		}
-		else
-		{
-			p(lst_a, lst_b);
-		}
+		if (ft_lstsize(*lst_b) == 2 && ft_lstsorted_s(*lst_b) == 1)
+			s(lst_b);
+		ft_itotop(lst_b, (*lst_a)->content);
+		p(lst_a, lst_b);
 		i++;
 	}
 	free(best);

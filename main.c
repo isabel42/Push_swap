@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/13 15:21:19 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/13 16:02:57 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,51 +51,37 @@ void	ft_sort_three(t_list **lst_a)//, int argc)
 
 int	main(int argc, char **argv)
 {
-	// int		value_max;
+	int		value_max;
 	t_list	*lst_a;
-	// t_list	*lst_b;
+	t_list	*lst_b;
 	t_list	*first;
 	// t_list	*last;
-	// int		**table;
-	// int		*best;
-	// int i;
-	// int j;
+	int		**table;
+	int		*best;
+	int i;
+	int j;
 
-	// value_max = 10;
+	value_max = 6;
 	if (ft_argvok(argv) == 0)
 	{
 		printf("%s", "Error\n");
 		return (0);
 	}
 	lst_a = ft_lstdef(argc, argv);
-	printf("Count to i: %d\n", ft_lst_i(lst_a, 4));
-	printf("Count to break: %d\n", ft_lstbreak(lst_a));
-	ft_itotop(&lst_a, 4);
-	printf("\n----\nA:");
-	first = lst_a;
-	while (first)
-	{
-		printf("%d, ", first->content);
-		first = first->next;
-	}
-	/*
-
+	lst_b = NULL;
 	table = ft_combi(value_max, 1);
 	best = ft_longestlist(lst_a, value_max);
 	j = 0;
 	i = 1;
 	ft_ns_tob(&lst_a, &lst_b, value_max);
-	if(ft_lstsorted(lst_a) == 1)
-	{
-		while (lst_b)
-		{
-			last = ft_lstlast(lst_a);
-			if ((lst_a->content > lst_b->content && lst_b->content > last->content) || ((lst_a->content  > lst_b->content || lst_b->content > last->content) && ft_lstsorted_s(lst_a) == 1) )
-				p(&lst_b, &lst_a);
-			 else
-				 rr(&lst_a);
-		}
-	}
+	// if(ft_lstsorted(lst_a) == 1)
+	// {
+	// 	while (lst_b)
+	// 	{
+	// 		ft_itotop(&lst_a, lst_b->content);
+	// 		p(&lst_b, &lst_a);
+	// 	}
+	// }
 	i = 0;
 	printf("\nTable: ");
 	while( i < 1)
@@ -130,6 +116,5 @@ int	main(int argc, char **argv)
 		first = first->next;
 	}
 	printf("\n");
-	printf("break: %d", ft_lstbreak(lst_a));
-*/
+
 }

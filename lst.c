@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/02 09:40:46 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/13 16:08:29 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	s(t_list **lstA)
 	t_list	*second;
 	t_list	*third;
 
-	if (*lstA)
+	if (*lstA && (*lstA)->next)
 	{
 		first = *lstA;
 		second = first->next;
