@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/13 16:08:29 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:54:14 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	r(t_list **lstA)
 	t_list	*first;
 	t_list	*last;
 
-	if (*lstA)
+	if (*lstA && ft_lstsize(*lstA) > 1)
 	{
 		first = *lstA;
 		last = ft_lstlast(*lstA);

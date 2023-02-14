@@ -6,12 +6,26 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/13 17:38:53 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:04:17 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
 #include "libpw.h"
+
+void	ft_toconflict(t_list **lst_a)
+{
+	int	count;
+
+	count = 0;
+	while ((*lst_a)->content < (*lst_a)->next->content)
+	{
+		r(lst_a);
+		count++;
+	}
+	if (count > 0)
+		r(lst_a);
+}
 
 void	ft_ns_tob(t_list **lst_a, t_list **lst_b, int value_max)
 {
@@ -24,7 +38,7 @@ void	ft_ns_tob(t_list **lst_a, t_list **lst_b, int value_max)
 	best = ft_longestlist(*lst_a, value_max);
 	while (i <= value_max)
 	{
-		if (i == best [j])
+		if (best [j] && i == best [j])
 		{
 			r(lst_a);
 			j++;
@@ -39,5 +53,40 @@ void	ft_ns_tob(t_list **lst_a, t_list **lst_b, int value_max)
 		i++;
 	}
 	free(best);
+	ft_breaktotop(lst_b);
+}
+
+void	ft_btoa_s(t_list **lst_a, t_list **lst_b)
+{
+	int	ref;
+
+	ref = ft_lstlast(*lst_a)->content;
+	while (*lst_b)
+	{
+		if (ref < (*lst_b)->content
+			|| (ft_lstsorted_s(*lst_a)
+				&& (((*lst_b)->content > ref
+						&& (*lst_b)->content > (*lst_a)->content)
+					|| ((*lst_b)->content < ref
+						&& (*lst_b)->content < (*lst_a)->content))))
+			p(lst_b, lst_a);
+		else
+			rr(lst_a);
+		ref = ft_lstlast(*lst_a)->content;
+	}
+	ft_breaktotop(lst_a);
+}
+
+void	ft_s_tob(t_list **lst_a, t_list **lst_b, int value_max)
+{
+	while (ft_lstsize(*lst_b) < value_max)
+	{
+		rr(lst_a);
+		ft_itotop(lst_b, (*lst_a)->content);
+		p(lst_a, lst_b);
+		printf("Size A: %d \n", ft_lstsize(*lst_a));
+		if (ft_lstsize(*lst_a) == 5)// ||ft_lstsize(*lst_a) == 5)
+			value_max++;
+	}
 	ft_breaktotop(lst_b);
 }

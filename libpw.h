@@ -33,8 +33,6 @@ int		ft_lstbreak(t_list *lst_a);
 void	ft_breaktotop(t_list **lst_a);
 void	ft_itotop(t_list **lst_a, int i);
 
-char	*ft_strjoin_free(char *s1, char *s2);
-
 t_list	*ft_lstdef(int argc, char **argv);
 void	r(t_list **lstA);
 void	rr(t_list **lstA);
@@ -55,6 +53,9 @@ int 	*ft_longestlist(t_list *lst, int value_max);
 int		*ft_longestlist_bis(int combi, int **table, t_list *lst, int value_max);
 int		*ft_intcpy(int *table);
 
-void ft_ns_tob(t_list **lst_a, t_list **lst_b, int value_max);
+void	ft_toconflict(t_list **lst_a);
+void 	ft_ns_tob(t_list **lst_a, t_list **lst_b, int value_max);
+void 	ft_btoa_s(t_list **lst_a, t_list **lst_b);
+void	ft_s_tob(t_list **lst_a, t_list **lst_b, int value_max);
 
 #endif
