@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/15 12:52:47 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/15 13:56:47 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ int	ft_lsttrouble(t_list *lst_a)
 	}
 	if (count > 0)
 		count++;
+	return(count);
 }
 
 void	ft_tocount(t_list **lst_a, int count)

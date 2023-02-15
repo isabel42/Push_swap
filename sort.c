@@ -6,25 +6,18 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/15 12:48:32 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/15 13:59:35 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
 #include "libpw.h"
 
-void	ft_toconflict(t_list **lst_a)
+void	ft_sort_three(t_list **lst_a)
 {
-	int	count;
-
-	count = 0;
-	while ((*lst_a)->content < (*lst_a)->next->content)
-	{
-		r(lst_a);
-		count++;
-	}
-	if (count > 0)
-		r(lst_a);
+	s(lst_a);
+	printf("sa\n");
+	ft_tocount(lst_a, ft_lstbreak(*lst_a));
 }
 
 void	ft_ns_tob(t_list **lst_a, t_list **lst_b, int value_max)
@@ -80,11 +73,13 @@ void	ft_btoa_s(t_list **lst_a, t_list **lst_b)
 
 void	ft_s_tob(t_list **lst_a, t_list **lst_b, int value_max)
 {
-	while (ft_lstsize(*lst_b) < value_max)
+	while (ft_lstsize(*lst_b) < value_max || (ft_lstsize(lst_b) < 6 && ft_lstsize(lst_b) > 2))
 	{
 		rr(lst_a);
 		ft_tocount(lst_b,(ft_lst_i(*lst_b, (*lst_a)->content)));
 		p(lst_a, lst_b);
 	}
 	ft_tocount(lst_b, ft_lstbreak(*lst_b));
+	if(ft_lstsize(lst_a) == 3)
+		ft_sort_three(lst_a);
 }
