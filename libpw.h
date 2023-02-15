@@ -30,8 +30,8 @@ int		ft_lstsorted_srev(t_list *lst);
 int		ft_lst_i(t_list *lst_a, int i);
 int		ft_lst_i_bis(t_list *lst_a, int i, int count, t_list *first);
 int		ft_lstbreak(t_list *lst_a);
-void	ft_breaktotop(t_list **lst_a);
-void	ft_itotop(t_list **lst_a, int i);
+void	ft_tocount(t_list **lst_a, int count);
+// void	ft_itotop(t_list **lst_a, int i);
 
 t_list	*ft_lstdef(int argc, char **argv);
 void	r(t_list **lstA);

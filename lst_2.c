@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/14 17:53:50 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/15 12:52:47 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,40 +85,25 @@ int	ft_lstbreak(t_list *lst_a)
 	return (count);
 }
 
-void	ft_breaktotop(t_list **lst_a)
+int	ft_lsttrouble(t_list *lst_a)
 {
 	int	count;
+
+	count = 0;
+	while (lst_a->content < lst_a->next->content)
+	{
+		count++;
+		lst_a = lst_a->next;
+	}
+	if (count > 0)
+		count++;
+}
+
+void	ft_tocount(t_list **lst_a, int count)
+{
 	int	size;
 	int	j;
 
-	count = ft_lstbreak(*lst_a);
-	size = ft_lstsize(*lst_a);
-	j = 0;
-	if (2 * count < size)
-	{
-		while (j < count)
-		{
-			r(lst_a);
-			j++;
-		}
-	}
-	else
-	{
-		while (j < size - count)
-		{
-			rr(lst_a);
-			j++;
-		}
-	}
-}
-
-void	ft_itotop(t_list **lst_a, int i)
-{
-	int		count;
-	int		size;
-	int		j;
-
-	count = ft_lst_i(*lst_a, i);
 	size = ft_lstsize(*lst_a);
 	j = 0;
 	if (2 * count < size)

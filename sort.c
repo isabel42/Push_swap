@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/14 18:04:17 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/15 12:48:32 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ void	ft_ns_tob(t_list **lst_a, t_list **lst_b, int value_max)
 			i++;
 			continue ;
 		}
-		ft_itotop(lst_b, (*lst_a)->content);
+		// ft_itotop(lst_b, (*lst_a)->content);
+		ft_tocount(lst_b,(ft_lst_i(*lst_b, (*lst_a)->content)));
 		p(lst_a, lst_b);
 		if ((ft_lstsize(*lst_b) == 3 && ft_lstsorted(*lst_b) == 1)
 			|| (ft_lstsize(*lst_b) == 2 && ft_lstsorted_s(*lst_b) == 1))
@@ -53,7 +54,7 @@ void	ft_ns_tob(t_list **lst_a, t_list **lst_b, int value_max)
 		i++;
 	}
 	free(best);
-	ft_breaktotop(lst_b);
+	ft_tocount(lst_b, ft_lstbreak(*lst_b));
 }
 
 void	ft_btoa_s(t_list **lst_a, t_list **lst_b)
@@ -74,7 +75,7 @@ void	ft_btoa_s(t_list **lst_a, t_list **lst_b)
 			rr(lst_a);
 		ref = ft_lstlast(*lst_a)->content;
 	}
-	ft_breaktotop(lst_a);
+	ft_tocount(lst_a, ft_lstbreak(*lst_a));
 }
 
 void	ft_s_tob(t_list **lst_a, t_list **lst_b, int value_max)
@@ -82,11 +83,8 @@ void	ft_s_tob(t_list **lst_a, t_list **lst_b, int value_max)
 	while (ft_lstsize(*lst_b) < value_max)
 	{
 		rr(lst_a);
-		ft_itotop(lst_b, (*lst_a)->content);
+		ft_tocount(lst_b,(ft_lst_i(*lst_b, (*lst_a)->content)));
 		p(lst_a, lst_b);
-		printf("Size A: %d \n", ft_lstsize(*lst_a));
-		if (ft_lstsize(*lst_a) == 5)// ||ft_lstsize(*lst_a) == 5)
-			value_max++;
 	}
-	ft_breaktotop(lst_b);
+	ft_tocount(lst_b, ft_lstbreak(*lst_b));
 }

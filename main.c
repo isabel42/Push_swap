@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/14 18:04:40 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/15 12:40:26 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_sort_three(t_list **lst_a)//, int argc)
 {
 	s(lst_a);
 	printf("sa\n");
-	ft_breaktotop(lst_a);
+	ft_tocount(lst_a, ft_lstbreak(*lst_a));
 }
 
 int	main(int argc, char **argv)
