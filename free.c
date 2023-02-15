@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/11 18:46:33 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/15 16:50:52 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,16 @@ void	ft_free_lst(t_list *lst)
 	while(lst)
 	{
 		lst->content = 0;
+		free(lst);
+		lst = lst->next;
+	}
+}
+
+
+void	ft_free_lst_char(r_list *lst)
+{
+	while(lst)
+	{
 		free(lst);
 		lst = lst->next;
 	}

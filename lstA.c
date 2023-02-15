@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/15 14:07:56 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/15 16:22:08 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,11 @@ t_list	*ft_lstdef(int argc, char **argv)
 	return (new);
 }
 
-void	r(t_list **lstA)
+void	ra(t_list **lstA, r_list **sol)
 {
 	t_list	*first;
 	t_list	*last;
+
 
 	if (*lstA && ft_lstsize(*lstA) > 1)
 	{
@@ -43,9 +44,15 @@ void	r(t_list **lstA)
 		*lstA = first->next;
 		first->next = NULL;
 	}
+
+	if(*sol == NULL)
+		*sol = ft_lstnew_char("ra\n");
+
+	else
+		ft_lstadd_back_char(sol, ft_lstnew_char("ra\n"));
 }
 
-void	rr(t_list **lstA)
+void	rra(t_list **lstA, r_list **sol)
 {
 	t_list	*first;
 	t_list	*last;
@@ -62,9 +69,14 @@ void	rr(t_list **lstA)
 		last->next = first;
 		before_last->next = NULL;
 	}
+
+	if(*sol == NULL)
+		*sol = ft_lstnew_char("rra\n");
+	else
+		ft_lstadd_back_char(sol, ft_lstnew_char("rra\n"));
 }
 
-void	p(t_list **lstA, t_list **lstB)
+void	pa(t_list **lstA, t_list **lstB, r_list **sol)
 {
 	t_list	*first_a;
 	t_list	*first_b;
@@ -77,9 +89,13 @@ void	p(t_list **lstA, t_list **lstB)
 	*lstA = first_a->next;
 	first_a->next = first_b;
 	}
+	if(sol == NULL)
+		*sol = ft_lstnew_char("pa\n");
+	else
+		ft_lstadd_back_char(sol, ft_lstnew_char("pa\n"));
 }
 
-void	s(t_list **lstA)
+void	sa(t_list **lstA, r_list **sol)
 {
 	t_list	*first;
 	t_list	*second;
@@ -93,5 +109,9 @@ void	s(t_list **lstA)
 		*lstA = second;
 		second->next = first;
 		second->next->next = third;
-	}	
+	}
+	if(sol == NULL)
+		*sol = ft_lstnew_char("sa\n");
+	else
+		ft_lstadd_back_char(sol, ft_lstnew_char("sa\n"));
 }

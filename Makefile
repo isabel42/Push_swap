@@ -1,7 +1,9 @@
 SRCS	= main.c \
 			test.c \
-			lst.c \
-			lst_2.c \
+			lstA.c \
+			lstB.c \
+			to_count.c \
+			count.c \
 			lst_issorted.c \
 			free.c \
 			combi.c \
