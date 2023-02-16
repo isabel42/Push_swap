@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/16 15:49:40 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/16 16:33:34 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,22 +93,19 @@ void	ft_sort(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol)
 		ft_printlst_char(*sol);
 		exit(0);
 	}
+	ft_tocount_a(lst_a, ft_lsttrouble(*lst_a), sol);
+	if (ft_lstsorted(*lst_a) == 1)
+		ft_sort(lst_a, lst_b, value_max, sol);
+	ft_ns_tob(lst_a, lst_b, value_max, sol);
+	if (ft_lstsorted(*lst_a) == 1)
+	{	
+		ft_btoa_s(lst_a, lst_b, sol);
+		ft_sort(lst_a, lst_b, value_max, sol);
+	}
 	else
 	{
-		ft_tocount_a(lst_a, ft_lsttrouble(*lst_a), sol);
-		if (ft_lstsorted(*lst_a) == 1)
-			ft_sort(lst_a, lst_b, value_max, sol);
-		ft_ns_tob(lst_a, lst_b, value_max, sol);
-		if (ft_lstsorted(*lst_a) == 1)
-		{	
-			ft_btoa_s(lst_a, lst_b, sol);
-			ft_sort(lst_a, lst_b, value_max, sol);
-		}
-		else
-		{
-			ft_s_tob(lst_a, lst_b, value_max, sol);
-			ft_btoa_s(lst_a, lst_b, sol);
-			ft_sort(lst_a, lst_b, value_max, sol);
-		}
+		ft_s_tob(lst_a, lst_b, value_max, sol);
+		ft_btoa_s(lst_a, lst_b, sol);
+		ft_sort(lst_a, lst_b, value_max, sol);
 	}
 }
