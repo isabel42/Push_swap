@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/16 10:21:31 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/16 15:45:59 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,5 @@ void	ft_free_lst_char(t_listc *lst)
 	{
 		free(lst);
 		lst = lst->next;
-	}
-}
-
-void	ft_printlst_char(t_listc *sol)
-{
-	while (sol)
-	{
-		ft_putstr_fd(sol->content, 1);
-		sol = sol->next;
 	}
 }

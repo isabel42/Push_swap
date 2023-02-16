@@ -1,64 +1,60 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   to_count.c                                         :+:      :+:    :+:   */
+/*   lst_char.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/16 15:45:59 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/16 13:20:42 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
 #include "libpw.h"
 
-void	ft_tocount_a(t_list **lst_a, int count, t_listc **sol)
+void	ft_lstadd_back_char(t_listc **lst, t_listc *new)
 {
-	int	size;
-	int	j;
+	t_listc	*last;
 
-	size = ft_lstsize(*lst_a);
-	j = 0;
-	if (2 * count < size)
-	{
-		while (j < count)
-		{
-			ra(lst_a, sol);
-			j++;
-		}
-	}
+	if (!*lst)
+		*lst = new;
 	else
 	{
-		while (j < size - count)
-		{
-			rra(lst_a, sol);
-			j++;
-		}
+		last = ft_lstlast_char(*lst);
+		last->next = new;
 	}
 }
 
-void	ft_tocount_b(t_list **lst_b, int count, t_listc **sol)
+t_listc	*ft_lstlast_char(t_listc *lst)
 {
-	int	size;
-	int	j;
-
-	size = ft_lstsize(*lst_b);
-	j = 0;
-	if (2 * count < size)
+	while (lst)
 	{
-		while (j < count)
-		{
-			rb(lst_b, sol);
-			j++;
-		}
+		if (lst->next == NULL)
+			return (lst);
+		lst = lst->next;
 	}
-	else
+	return (lst);
+}
+
+int	ft_lstsize_char(t_listc *lst)
+{
+	int		count;
+
+	count = 0;
+	while (lst)
 	{
-		while (j < size - count)
-		{
-			rrb(lst_b, sol);
-			j++;
-		}
+		count++;
+		lst = lst->next;
+	}
+	return (count);
+}
+
+void	ft_printlst_char(t_listc *sol)
+{
+	while (sol)
+	{
+		ft_putstr_fd(sol->content, 1);
+		sol = sol->next;
 	}
 }

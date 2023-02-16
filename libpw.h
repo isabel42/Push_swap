@@ -32,17 +32,20 @@ int		ft_lstsorted(t_list *lst);
 int		ft_lstsorted_rev(t_list *lst);
 int		ft_lstsorted_s(t_list *lst);
 int		ft_lstsorted_srev(t_list *lst);
+void	ft_printlst(t_list *sol);
 
 int		ft_lst_i(t_list *lst_a, int i);
 int		ft_lst_i_bis(t_list *lst_a, int i, int count, t_list *first);
 int		ft_lstbreak(t_list *lst_a);
-int		ft_lsttrouble(t_list *lst_a, t_listc **sol);
+int		ft_lsttrouble(t_list *lst_a);
 
 void	ft_tocount_a(t_list **lst_a, int count, t_listc **sol);
 void	ft_tocount_b(t_list **lst_a, int count, t_listc **sol);
+
 void	ft_lstadd_back_char(t_listc **lst, t_listc *new);
 t_listc	*ft_lstlast_char(t_listc *lst);
 int		ft_lstsize_char(t_listc *lst);
+void	ft_printlst_char(t_listc *sol);
 
 t_list	*ft_lstdef(int argc, char **argv);
 void	ra(t_list **lstA, t_listc **sol);
@@ -59,7 +62,6 @@ void	sb(t_list **lstA, t_listc **sol);
 void	ft_free_pp_int(int **s);
 void	ft_free_lst(t_list *lst);
 void	ft_free_lst_char(t_listc *lst);
-void	ft_printlst_char(t_listc *sol);
 
 int		ft_fact(int nb);
 int		**ft_combi(int value_max, int size);

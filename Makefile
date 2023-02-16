@@ -2,6 +2,7 @@ SRCS	= main.c \
 			test.c \
 			lstA.c \
 			lstB.c \
+			lst_char.c \
 			to_count.c \
 			count.c \
 			lst_issorted.c \
@@ -28,8 +29,7 @@ CFLAGS	= -Wextra -Wall -Werror
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 ${NAME}:	lib
-			${CC} -o ${NAME} main.c -L. -lpushswap
-			make clean
+			${CC} ${CFLAGS} -o ${NAME} main.c -L. -lpushswap
 
 all:		${NAME}
 
