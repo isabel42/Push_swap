@@ -6,17 +6,18 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/15 16:26:29 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/16 10:12:48 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
 #include "libpw.h"
 
-void	ft_tocount_a(t_list **lst_a, int count, r_list **sol)
+void	ft_tocount_a(t_list **lst_a, int count, t_listc **sol)
 {
 	int	size;
 	int	j;
+
 	size = ft_lstsize(*lst_a);
 	j = 0;
 	if (2 * count < size)
@@ -37,7 +38,7 @@ void	ft_tocount_a(t_list **lst_a, int count, r_list **sol)
 	}
 }
 
-void	ft_tocount_b(t_list **lst_a, int count, r_list **sol)
+void	ft_tocount_b(t_list **lst_a, int count, t_listc **sol)
 {
 	int	size;
 	int	j;
@@ -62,9 +63,9 @@ void	ft_tocount_b(t_list **lst_a, int count, r_list **sol)
 	}
 }
 
-void	ft_lstadd_back_char(r_list **lst, r_list *new)
+void	ft_lstadd_back_char(t_listc **lst, t_listc *new)
 {
-	r_list	*last;
+	t_listc	*last;
 
 	if (!*lst)
 		*lst = new;
@@ -75,7 +76,7 @@ void	ft_lstadd_back_char(r_list **lst, r_list *new)
 	}
 }
 
-r_list	*ft_lstlast_char(r_list *lst)
+t_listc	*ft_lstlast_char(t_listc *lst)
 {
 	while (lst)
 	{
@@ -86,7 +87,7 @@ r_list	*ft_lstlast_char(r_list *lst)
 	return (lst);
 }
 
-int	ft_lstsize_char(r_list *lst)
+int	ft_lstsize_char(t_listc *lst)
 {
 	int		count;
 

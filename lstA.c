@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/15 16:22:08 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/16 10:18:54 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,10 @@ t_list	*ft_lstdef(int argc, char **argv)
 	return (new);
 }
 
-void	ra(t_list **lstA, r_list **sol)
+void	ra(t_list **lstA, t_listc **sol)
 {
 	t_list	*first;
 	t_list	*last;
-
 
 	if (*lstA && ft_lstsize(*lstA) > 1)
 	{
@@ -44,15 +43,13 @@ void	ra(t_list **lstA, r_list **sol)
 		*lstA = first->next;
 		first->next = NULL;
 	}
-
-	if(*sol == NULL)
+	if (*sol == NULL)
 		*sol = ft_lstnew_char("ra\n");
-
 	else
 		ft_lstadd_back_char(sol, ft_lstnew_char("ra\n"));
 }
 
-void	rra(t_list **lstA, r_list **sol)
+void	rra(t_list **lstA, t_listc **sol)
 {
 	t_list	*first;
 	t_list	*last;
@@ -69,14 +66,13 @@ void	rra(t_list **lstA, r_list **sol)
 		last->next = first;
 		before_last->next = NULL;
 	}
-
-	if(*sol == NULL)
+	if (*sol == NULL)
 		*sol = ft_lstnew_char("rra\n");
 	else
 		ft_lstadd_back_char(sol, ft_lstnew_char("rra\n"));
 }
 
-void	pa(t_list **lstA, t_list **lstB, r_list **sol)
+void	pa(t_list **lstA, t_list **lstB, t_listc **sol)
 {
 	t_list	*first_a;
 	t_list	*first_b;
@@ -89,13 +85,13 @@ void	pa(t_list **lstA, t_list **lstB, r_list **sol)
 	*lstA = first_a->next;
 	first_a->next = first_b;
 	}
-	if(sol == NULL)
+	if (sol == NULL)
 		*sol = ft_lstnew_char("pa\n");
 	else
 		ft_lstadd_back_char(sol, ft_lstnew_char("pa\n"));
 }
 
-void	sa(t_list **lstA, r_list **sol)
+void	sa(t_list **lstA, t_listc **sol)
 {
 	t_list	*first;
 	t_list	*second;
@@ -110,7 +106,7 @@ void	sa(t_list **lstA, r_list **sol)
 		second->next = first;
 		second->next->next = third;
 	}
-	if(sol == NULL)
+	if (sol == NULL)
 		*sol = ft_lstnew_char("sa\n");
 	else
 		ft_lstadd_back_char(sol, ft_lstnew_char("sa\n"));

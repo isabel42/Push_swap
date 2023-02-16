@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/15 16:43:24 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/15 23:21:55 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,16 @@ int	ft_lst_i_bis(t_list *lst_a, int i, int count, t_list *first)
 		return (1);
 	if (ft_lstsorted_rev(first) == 1
 		&& (count == ft_lstbreak(first) - 1
-					&& ((lst_a->content > i && lst_a->next->content > i)
-						|| (lst_a->content < i && lst_a->next->content < i))))
-		return(1);
+			&& ((lst_a->content > i && lst_a->next->content > i)
+				|| (lst_a->content < i && lst_a->next->content < i))))
+		return (1);
 	if (ft_lstsorted(first) == 1
-			&& (lst_a->content < i && lst_a->next->content > i))
+		&& (lst_a->content < i && lst_a->next->content > i))
 		return (1);
 	if (ft_lstsorted(first) == 1
 		&& (count == ft_lstbreak(first) - 1
-					&& ((lst_a->content < i && lst_a->next->content < i)
-						|| (lst_a->content > i && lst_a->next->content > i))))
+			&& ((lst_a->content < i && lst_a->next->content < i)
+				|| (lst_a->content > i && lst_a->next->content > i))))
 		return (1);
 	return (0);
 }
@@ -97,5 +97,5 @@ int	ft_lsttrouble(t_list *lst_a)
 	}
 	if (count > 0)
 		count++;
-	return(count);
+	return (count);
 }

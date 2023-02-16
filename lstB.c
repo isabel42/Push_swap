@@ -6,16 +6,16 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/15 16:05:48 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/16 10:13:59 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
 #include "libpw.h"
 
-r_list	*ft_lstnew_char(char *content)
+t_listc	*ft_lstnew_char(char *content)
 {
-	r_list	*lstnew;
+	t_listc	*lstnew;
 
 	lstnew = ft_calloc(sizeof (*lstnew), 1);
 	if (lstnew == NULL)
@@ -23,10 +23,9 @@ r_list	*ft_lstnew_char(char *content)
 	lstnew->content = content;
 	lstnew->next = NULL;
 	return (lstnew);
-	
 }
 
-void	rb(t_list **lstA, r_list **sol)
+void	rb(t_list **lstA, t_listc **sol)
 {
 	t_list	*first;
 	t_list	*last;
@@ -39,13 +38,13 @@ void	rb(t_list **lstA, r_list **sol)
 		*lstA = first->next;
 		first->next = NULL;
 	}
-	if(sol == NULL)
+	if (sol == NULL)
 		*sol = ft_lstnew_char("rb\n");
 	else
 		ft_lstadd_back_char(sol, ft_lstnew_char("rb\n"));
 }
 
-void	rrb(t_list **lstA, r_list **sol)
+void	rrb(t_list **lstA, t_listc **sol)
 {
 	t_list	*first;
 	t_list	*last;
@@ -62,13 +61,13 @@ void	rrb(t_list **lstA, r_list **sol)
 		last->next = first;
 		before_last->next = NULL;
 	}
-	if(sol == NULL)
+	if (sol == NULL)
 		*sol = ft_lstnew_char("rrb\n");
 	else
 		ft_lstadd_back_char(sol, ft_lstnew_char("rrb\n"));
 }
 
-void	pb(t_list **lstA, t_list **lstB, r_list **sol)
+void	pb(t_list **lstA, t_list **lstB, t_listc **sol)
 {
 	t_list	*first_a;
 	t_list	*first_b;
@@ -81,13 +80,13 @@ void	pb(t_list **lstA, t_list **lstB, r_list **sol)
 	*lstA = first_a->next;
 	first_a->next = first_b;
 	}
-	if(sol == NULL)
+	if (sol == NULL)
 		*sol = ft_lstnew_char("pb\n");
 	else
 		ft_lstadd_back_char(sol, ft_lstnew_char("pb\n"));
 }
 
-void	sb(t_list **lstA, r_list **sol)
+void	sb(t_list **lstA, t_listc **sol)
 {
 	t_list	*first;
 	t_list	*second;
@@ -102,7 +101,7 @@ void	sb(t_list **lstA, r_list **sol)
 		second->next = first;
 		second->next->next = third;
 	}
-	if(sol == NULL)
+	if (sol == NULL)
 		*sol = ft_lstnew_char("sb\n");
 	else
 		ft_lstadd_back_char(sol, ft_lstnew_char("sb\n"));
