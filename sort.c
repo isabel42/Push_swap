@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/16 10:25:11 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/16 12:25:31 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ void	ft_sort(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol)
 		ft_tocount_a(lst_a, ft_lstbreak(*lst_a), sol);
 	else
 	{
-		ft_tocount_a(lst_a, ft_lsttrouble(*lst_a), sol);
+		ft_tocount_a(lst_a, ft_lsttrouble(*lst_a, sol), sol);
 		ft_ns_tob(lst_a, lst_b, value_max, sol);
 		if (ft_lstsorted(*lst_a) == 1)
 		{	

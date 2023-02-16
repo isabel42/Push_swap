@@ -8,11 +8,13 @@ SRCS	= main.c \
 			free.c \
 			combi.c \
 			longest_combi.c \
-			sort.c
+			sort.c 
 
 OBJS 	= ${SRCS:.c=.o}
 
-NAME 	= libpushswap.a
+NAME 	= push_swap
+
+LIB		= libpushswap.a
 
 CC		= gcc
 
@@ -25,13 +27,17 @@ CFLAGS	= -Wextra -Wall -Werror
 .c.o:	
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-${NAME}:	${OBJS}
-				make bonus -C ./libft
-				cp ./libft/libft.a ${NAME}
-				${AR} ${NAME} ${OBJS}
-				ranlib ${NAME}
+${NAME}:	lib
+			${CC} -o ${NAME} main.c -L. -lpushswap
+			make clean
 
 all:		${NAME}
+
+lib: 		${OBJS}
+				make bonus -C ./libft
+				cp ./libft/libft.a ${LIB}
+				${AR} ${LIB} ${OBJS}
+				ranlib ${LIB}
 
 clean:
 			make fclean -C ./libft	
@@ -41,10 +47,5 @@ fclean: 	clean
 			${RM} ${NAME}
 
 re:			fclean all
-
-test:		all
-			${CC} ${CFLAGS} print_test.c -L. -lftprintf
-			./a.out
-			rm a.out
 
 .PHONY:		all clean fclean re

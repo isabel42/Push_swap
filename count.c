@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/15 23:21:55 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/16 12:26:43 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,15 +85,22 @@ int	ft_lstbreak(t_list *lst_a)
 	return (count);
 }
 
-int	ft_lsttrouble(t_list *lst_a)
+int	ft_lsttrouble(t_list *lst_a, t_listc **sol)
 {
 	int	count;
+	int	prev;
 
 	count = 0;
 	while (lst_a->content < lst_a->next->content)
 	{
 		count++;
+		prev = lst_a->content;
 		lst_a = lst_a->next;
+		if(lst_a->next && lst_a->content > lst_a->next->content && lst_a->next->content > prev)
+		{
+			sa(&lst_a, sol);
+			count++;
+		}
 	}
 	if (count > 0)
 		count++;
