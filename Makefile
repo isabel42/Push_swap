@@ -6,10 +6,11 @@ SRCS	= main.c \
 			to_count.c \
 			count.c \
 			lst_issorted.c \
-			free.c \
+			free_exit.c \
 			combi.c \
 			longest_combi.c \
-			sort.c 
+			sort.c \
+			opti.c
 
 OBJS 	= ${SRCS:.c=.o}
 

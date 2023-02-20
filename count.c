@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/16 14:17:05 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/20 15:18:03 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,4 +98,14 @@ int	ft_lsttrouble(t_list *lst_a)
 	if (count > 0)
 		count++;
 	return (count);
+}
+
+int	ft_countbest(int *best)
+{
+	int	i;
+
+	i = 0;
+	while (best[i] > 0)
+		i++;
+	return (i);
 }

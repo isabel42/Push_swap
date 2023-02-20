@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/16 15:42:48 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/20 15:18:32 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,8 @@ int	*ft_longestlist_bis(int combi, int **table, t_list *lst, int value_max)
 	while (i < combi)
 	{
 		lst_table = ft_linetlstbuild(table [i], lst, value_max);
-		if (ft_lstsorted_s(lst_table) == 1)
+		if ((ft_lstsorted_s(lst_table) == 1)
+			|| (value_max == ft_lstsize(lst) && ft_lstsorted(lst_table) == 1))
 		{
 			sol = ft_intcpy(table[i]);
 			ft_free_lst(lst_table);
