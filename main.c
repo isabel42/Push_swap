@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/21 10:55:50 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/21 14:57:39 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ int	main(int argc, char **argv)
 	t_list	*lst_b;
 	t_listc	*sol;
 
+	if (argc < 2)
+		return (0);
 	if (ft_argvok(argv) == 0)
 	{
-		printf("%s", "Error\n");
-		return (0);
+		write(2, "Error\n", 6);
+		exit (0);
 	}
 	lst_a = ft_lstdef(argc, argv);
 	lst_b = NULL;

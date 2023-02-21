@@ -76,14 +76,16 @@ int		*ft_intcpy(int *table);
 
 void	ft_sort_three(t_list **lst_a, t_listc **sol);
 void	ft_ns_tob(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol);
-void	ft_btoa_s(t_list **lst_a, t_list **lst_b, t_listc **sol);
+void	ft_btoa_s(t_list **lst_a, t_list **lst_b, t_listc **sol, int i);
 void	ft_s_tob(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol);
 void	ft_sort(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol);
 
-void	ft_optisol_r(t_listc **sol);
+void	ft_optisol_rp(t_listc **sol);
+int		ft_optisol_rp_bis(char *test_next, char *test_next_next);
 void	ft_optisol_ss(t_listc **sol);
 void	ft_optisol_rr(t_listc **sol);
 void	ft_optisol_rrr(t_listc **sol);
+
 void	ft_optisol(t_listc **sol);
 
 #endif
