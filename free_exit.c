@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free.c                                             :+:      :+:    :+:   */
+/*   free_exit.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/20 16:08:10 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/21 10:49:36 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,12 @@ void	ft_free_lst_char(t_listc *lst)
 void	ft_ps_exit(t_list **lst_a, t_listc **sol)
 {
 	ft_tocount_a(lst_a, ft_lstbreak(*lst_a), sol);
+	ft_printlst(*lst_a);
+	printf("\nsize of A: %d\n", ft_lstsize(*lst_a));
 	ft_free_lst(*lst_a);
 	ft_optisol(sol);
-	ft_printlst_char(*sol);
+	printf("size of sol: %d\n", ft_lstsize_char(*sol));
+	// ft_printlst_char(*sol);
+	ft_free_lst_char(*sol);
 	exit(0);
 }

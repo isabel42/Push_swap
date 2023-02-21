@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/20 15:47:50 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/21 10:49:17 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ void	ft_ns_tob(t_list **lst_a, t_list **lst_b, int v_m, t_listc **sol)
 	i = 1;
 	j = 0;
 	best = ft_longestlist(*lst_a, v_m);
-	while (i <= v_m && ft_lstsize(*lst_b) + ft_countbest(best) < v_m)
+	while (i <= v_m)
 	{
-		if (best [j] && i == best [j])
+		if (best [j] && i == best [j] && ft_lstsorted(*lst_a)== 0)
 		{
 			ra(lst_a, sol);
 			j++;
@@ -56,7 +56,7 @@ void	ft_btoa_s(t_list **lst_a, t_list **lst_b, t_listc **sol)
 	while (*lst_b)
 	{	
 		if ((ft_lstsorted(*lst_a) == 0 && (ref < (*lst_b)->content
-					|| (ref > (*lst_b)->content && ref > (*lst_b)->content)))
+		))//|| ref > (*lst_b)->content ))
 			|| (ft_lstsorted(*lst_a) == 1 && ft_lstsorted_s(*lst_a) == 0
 				&& (ref < (*lst_b)->content
 					&& (*lst_a)->content > (*lst_b)->content))

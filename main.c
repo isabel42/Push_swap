@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/16 17:36:39 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/21 10:55:50 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,4 @@ int	main(int argc, char **argv)
 	if (ft_lstsize(lst_a) < value_max)
 		value_max = ft_lstsize(lst_a);
 	ft_sort(&lst_a, &lst_b, value_max, &sol);
-	free(sol);
 }
