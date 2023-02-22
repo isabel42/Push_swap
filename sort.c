@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/21 16:36:47 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/22 11:57:05 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	ft_ns_tob(t_list **lst_a, t_list **lst_b, int v_m, t_listc **sol)
 	i = 1;
 	j = 0;
 	best = ft_longestlist(*lst_a, v_m);
-	while (i <= v_m )//&& ft_lstsorted(*lst_a) == 0)
+	while (i <= v_m && ft_lstsorted(*lst_a) == 0)
 	{
 		if (best [j] && i == best [j])
 		{
@@ -43,53 +43,38 @@ void	ft_ns_tob(t_list **lst_a, t_list **lst_b, int v_m, t_listc **sol)
 			|| (ft_lstsize(*lst_b) == 2 && ft_lstsorted_s(*lst_b) == 1))
 			sb(lst_b, sol);
 		i++;
-
 	}
 	free(best);
 	ft_tocount_b(lst_b, ft_lstbreak(*lst_b), sol);
 }
 
-void	ft_btoa_s(t_list **lst_a, t_list **lst_b, t_listc **sol, int i)
+void	ft_btoa_s(t_list **lst_a, t_list **lst_b, t_listc **sol)
 {
 	int	ref;
-	ref = ft_lstlast(*lst_a)->content;
 
+	ref = ft_lstlast(*lst_a)->content;
 	while (*lst_b)
 	{	
-		// printf("A:");
-		// ft_printlst(*lst_a);
-		// printf("\n");
-		// printf("B:");
-		// ft_printlst(*lst_b);
-		// printf("\n");
-		if ((ft_lstsorted(*lst_a) == 0 && ((ref < (*lst_b)->content) || (ref > (*lst_b)->content && (*lst_a)->content > (*lst_b)->content)))
-			|| (ft_lstsorted(*lst_a) == 1 && ft_lstsorted_s(*lst_a) == 0
-				&& (ref < (*lst_b)->content
-					&& (*lst_a)->content > (*lst_b)->content))
-			|| (ft_lstsorted_s(*lst_a) == 1 && (((*lst_b)->content > ref
-						&& (*lst_b)->content > (*lst_a)->content)
-					|| ((*lst_b)->content < ref
-						&& (*lst_b)->content < (*lst_a)->content))))
-			pb(lst_b, lst_a, sol);
-		else
+		if (ft_lstsorted(*lst_a) == 1)
 		{
-			if (ft_lstsorted(*lst_a) == 1 && ft_lstsize(*lst_a) != 2)
+			if ((ft_lstsorted_s(*lst_a) == 0 && (ref < (*lst_b)->content
+						&& (*lst_a)->content > (*lst_b)->content))
+				|| (((*lst_b)->content > ref && (*lst_b)->content > (*lst_a)->content)
+					|| ((*lst_b)->content < ref && (*lst_b)->content < (*lst_a)->content)))
+				pb(lst_b, lst_a, sol);
+			else if (ft_lstsize(*lst_a) != 2)
 				ft_tocount_a(lst_a, ft_lst_i((*lst_a), (*lst_b)->content), sol);
 			else
 				rra(lst_a, sol);
 		}
+		else if ((*lst_b)->content > ft_lstmax(*lst_a))
+			pb(lst_b, lst_a, sol);
+		else if (ref > (*lst_b)->content && (ref < (*lst_a)->content || ft_lstsize(*lst_b) == 10))
+			rra(lst_a, sol);
+		else
+			pb(lst_b, lst_a, sol);
 		ref = ft_lstlast(*lst_a)->content;
 	}
-	printf("A:");
-		ft_printlst(*lst_a);
-		printf("\n");
-	printf("B:");
-		ft_printlst(*lst_b);
-		printf("\n");
-
-		printf("\n");
-	if(i == 2)
-		exit (0);
 }
 
 void	ft_s_tob(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol)
@@ -108,8 +93,6 @@ void	ft_s_tob(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol)
 
 void	ft_sort(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol)
 {
-	static int i = 0;
-
 	if (ft_lstsorted(*lst_a) == 1)
 		ft_ps_exit(lst_a, sol);
 	if (ft_lstsize(*lst_a) == 3)
@@ -122,14 +105,13 @@ void	ft_sort(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol)
 	ft_ns_tob(lst_a, lst_b, value_max, sol);
 	if (ft_lstsorted(*lst_a) == 1)
 	{	
-		ft_btoa_s(lst_a, lst_b, sol, i);
+		ft_btoa_s(lst_a, lst_b, sol);
 		ft_ps_exit(lst_a, sol);
 	}
 	else
 	{	
 		ft_s_tob(lst_a, lst_b, value_max, sol);
-		ft_btoa_s(lst_a, lst_b, sol, i);
-		i++;
+		ft_btoa_s(lst_a, lst_b, sol);
 		ft_sort(lst_a, lst_b, value_max, sol);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/21 15:38:19 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/22 11:22:26 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,4 +110,22 @@ void	ft_printlst(t_list *lst)
 		printf("%d, ",lst->content);
 		lst = lst->next;
 	}
+}
+
+int	ft_lstmax(t_list *lst)
+{
+	int	i;
+
+	i = 0;
+	if(lst)
+	{
+		i = lst->content;
+		while (lst)
+		{
+			if (i < lst->content)
+				i = lst->content;
+			lst = lst->next;
+		}
+	}
+	return (i);
 }
