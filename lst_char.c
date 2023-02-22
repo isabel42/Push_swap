@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/20 16:05:45 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/22 12:49:25 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_lstadd_back_char(t_listc **lst, t_listc *new)
 {
 	t_listc	*last;
 
-	if (!*lst)
+	if ((*lst) == NULL)
 		*lst = new;
 	else
 	{

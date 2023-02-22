@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/21 12:32:00 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/22 15:27:00 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,13 @@ void	ra(t_list **lstA, t_listc **sol)
 		first->next = NULL;
 	}
 	if (*sol == NULL)
-		*sol = ft_lstnew_char("ra\n");
+	{
+	*sol = ft_lstnew_char("ra\n");
+	}	
 	else
+	{
 		ft_lstadd_back_char(sol, ft_lstnew_char("ra\n"));
+	}
 }
 
 void	rra(t_list **lstA, t_listc **sol)

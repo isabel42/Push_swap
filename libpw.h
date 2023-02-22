@@ -32,8 +32,8 @@ int		ft_lstsorted(t_list *lst);
 int		ft_lstsorted_rev(t_list *lst);
 int		ft_lstsorted_s(t_list *lst);
 int		ft_lstsorted_srev(t_list *lst);
-void	ft_printlst(t_list *lst);
 int		ft_lstmax(t_list *lst);
+void	ft_printlst(t_list *lst);
 
 int		ft_lst_i(t_list *lst_a, int i);
 int		ft_lst_i_bis(t_list *lst_a, int i, int count, t_list *first);
@@ -77,7 +77,7 @@ int		*ft_intcpy(int *table);
 
 void	ft_sort_three(t_list **lst_a, t_listc **sol);
 void	ft_ns_tob(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol);
-void	ft_btoa_s(t_list **lst_a, t_list **lst_b, t_listc **sol);
+void	ft_btoa_s(t_list **lst_a, t_list **lst_b, t_listc **sol, int value_max);
 void	ft_s_tob(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol);
 void	ft_sort(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol);
 
