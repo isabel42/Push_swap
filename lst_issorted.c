@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/22 15:30:03 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/22 16:35:55 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,10 +123,12 @@ int	ft_lstmax(t_list *lst)
 
 void	ft_printlst(t_list *lst)
 {
-	while (lst)
+	int i = 0;
+	while (lst && i < 500)
 	{
 		printf("%d, ", lst->content);
 		lst = lst->next;
+		i++;
 	}
 	printf("\n");
 }

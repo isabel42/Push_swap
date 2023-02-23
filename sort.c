@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/22 15:28:47 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/23 11:28:33 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ void	ft_btoa_s(t_list **lst_a, t_list **lst_b, t_listc **sol, int v_m)
 {
 	int	ref;
 
+			printf("size of sol: %d", ft_lstsize_char(*sol));
+			printf("\n");
 	ref = ft_lstlast(*lst_a)->content;
 	while (*lst_b)
 	{	
@@ -59,10 +61,10 @@ void	ft_btoa_s(t_list **lst_a, t_list **lst_b, t_listc **sol, int v_m)
 		{
 			if ((ft_lstsorted_s(*lst_a) == 0 && (ref < (*lst_b)->content
 						&& (*lst_a)->content > (*lst_b)->content))
-				|| (((*lst_b)->content > ref
-						&& (*lst_b)->content > (*lst_a)->content)
-					|| ((*lst_b)->content < ref
-						&& (*lst_b)->content < (*lst_a)->content)))
+				|| (ft_lstsorted_s(*lst_a) == 1 && (((*lst_b)->content > ref
+							&& (*lst_b)->content > (*lst_a)->content)
+						|| ((*lst_b)->content < ref
+							&& (*lst_b)->content < (*lst_a)->content))))
 				pb(lst_b, lst_a, sol);
 			else if (ft_lstsize(*lst_a) != 2)
 				ft_tocount_a(lst_a, ft_lst_i((*lst_a), (*lst_b)->content), sol);
@@ -74,6 +76,8 @@ void	ft_btoa_s(t_list **lst_a, t_list **lst_b, t_listc **sol, int v_m)
 		else if (ref > (*lst_b)->content
 			&& (ref < (*lst_a)->content || ft_lstsize(*lst_b) == v_m))
 			rra(lst_a, sol);
+		else if((*lst_a)->content > ref && (*lst_b)->content > (*lst_a)->content)
+			ra(lst_a, sol);
 		else
 			pb(lst_b, lst_a, sol);
 		ref = ft_lstlast(*lst_a)->content;
@@ -116,7 +120,7 @@ void	ft_sort(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol)
 		ft_ps_exit(lst_a, sol);
 	}
 	else
-	{	
+	{
 		ft_s_tob(lst_a, lst_b, value_max, sol);
 		ft_btoa_s(lst_a, lst_b, sol, value_max);
 		ft_sort(lst_a, lst_b, value_max, sol);

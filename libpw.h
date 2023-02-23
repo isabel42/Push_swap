@@ -65,10 +65,11 @@ void	ft_free_lst(t_list *lst);
 void	ft_free_lst_char(t_listc *lst);
 void	ft_ps_exit(t_list **lst_a, t_listc **sol);
 
-int		ft_fact(int nb);
+long long ft_fact_2(int i, int j);
+long long ft_combicount(int n, int k);
 int		**ft_combi(int value_max, int size);
 int		**ft_combi_alloc(int **table, int value_max, int size);
-int		**ft_combi_alloc_bis(int **table, int value_max, int j, int i);
+int		**ft_combi_alloc_bis(int **table, int value_max, long long j, long long i);
 
 t_list	*ft_linetlstbuild(int *combi, t_list *lst, int value_max);
 int		*ft_longestlist(t_list *lst, int value_max);

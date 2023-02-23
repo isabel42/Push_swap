@@ -6,31 +6,51 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/12 16:22:46 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/22 23:04:44 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
 #include "libpw.h"
 
-int	ft_fact(int nb)
-{	
-	if (nb < 0)
-		return (0);
-	if (nb == 1 || nb == 0)
-		return (1);
-	return (nb * ft_fact (nb - 1));
+long long ft_fact_2(int i, int j)
+{
+	long long result;
+
+	result = 1;
+	while (i > j)
+	{
+		result = result * i;
+		i--;
+	}
+	return (result);
+}
+
+long long ft_combicount(int n, int k)
+{
+	int max;
+	int min;
+	long long result;
+
+	max = n - k;
+	min = k;
+	if (min > max)
+	{
+		min = n - k;
+		max = k;
+	}
+	result = ft_fact_2(n, max) / ft_fact_2(min, 0);
+	return (result);
 }
 
 int	**ft_combi(int value_max, int size)
 {
 	int	**table;
-	int	combi;
-	int	i;
+	long long	combi;
+	long long	i;
 
 	i = size + 1;
-	combi = ft_fact(value_max) / (ft_fact(size)
-			* ft_fact(value_max - size));
+	combi = ft_combicount(value_max, size);
 	table = ft_calloc(sizeof(*table), combi + 1);
 	if (!table)
 		return (NULL);
@@ -51,8 +71,8 @@ int	**ft_combi(int value_max, int size)
 
 int	**ft_combi_alloc(int **table, int value_max, int size)
 {
-	int	i;
-	int	j;
+	long long	i;
+	long long	j;
 
 	i = 1;
 	while (table[i - 1][0] < value_max - size + 1)
@@ -76,7 +96,7 @@ int	**ft_combi_alloc(int **table, int value_max, int size)
 	return (table);
 }
 
-int	**ft_combi_alloc_bis(int **table, int value_max, int j, int i)
+int	**ft_combi_alloc_bis(int **table, int value_max, long long j, long long i)
 {
 	int	size;
 

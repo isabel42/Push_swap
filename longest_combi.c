@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/20 15:18:32 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/22 23:11:33 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*ft_linetlstbuild(int *combi, t_list *lst, int value_max)
 	t_list	*new;
 	t_list	*second;
 	int		i;
-	int		j;
+	long long		j;
 
 	i = 0;
 	j = 0;
@@ -52,7 +52,8 @@ int	*ft_longestlist(t_list *lst, int value_max)
 	j = value_max + 1;
 	while (j--)
 	{	
-		combi = ft_fact(value_max) / (ft_fact(j) * ft_fact(value_max - j));
+		combi = ft_combicount(value_max, j);
+		ft_combicount(value_max, j);
 		table = ft_combi(value_max, j);
 		sol = ft_longestlist_bis(combi, table, lst, value_max);
 		if (sol != NULL)
