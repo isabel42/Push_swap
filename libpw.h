@@ -88,6 +88,9 @@ void	ft_optisol_ss(t_listc **sol);
 void	ft_optisol_rr(t_listc **sol);
 void	ft_optisol_rrr(t_listc **sol);
 
-void	ft_optisol(t_listc **sol);
+int	ft_opti_countr(t_listc *test, int size_lst);
+int	ft_opti_countrr(t_listc *test, int size_lst);
+void ft_opti_r_rr(t_listc **sol, int size_lst);
+void	ft_optisol(t_listc **sol, int size_lst);
 
 #endif
