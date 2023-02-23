@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/23 15:36:25 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/23 16:00:00 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_ns_tob(t_list **lst_a, t_list **lst_b, int v_m, t_listc **sol)
 			continue ;
 		}
 		ft_tocount_b(lst_b, (ft_lst_i(*lst_b, (*lst_a)->content)), sol);
-		pa(lst_a, lst_b, sol);
+		pb(lst_a, lst_b, sol);
 		if ((ft_lstsize(*lst_b) == 3 && ft_lstsorted(*lst_b) == 1)
 			|| (ft_lstsize(*lst_b) == 2 && ft_lstsorted_s(*lst_b) == 1))
 			sb(lst_b, sol);
@@ -65,7 +65,7 @@ void	ft_btoa_s(t_list **lst_a, t_list **lst_b, t_listc **sol, int v_m)
 							&& (*lst_b)->content > (*lst_a)->content)
 						|| ((*lst_b)->content < ref
 							&& (*lst_b)->content < (*lst_a)->content))))
-				pb(lst_b, lst_a, sol);
+				pa(lst_b, lst_a, sol);
 			else if (ft_lstsize(*lst_a) != 2)
 				ft_tocount_a(lst_a, ft_lst_i((*lst_a), (*lst_b)->content), sol);
 			else
@@ -77,9 +77,9 @@ void	ft_btoa_s(t_list **lst_a, t_list **lst_b, t_listc **sol, int v_m)
 		else if ((*lst_a)->content > ref && (*lst_b)->content > (*lst_a)->content)
 			ra(lst_a, sol);
 		else if ((*lst_b)->content > ft_lstmax(*lst_a))
-			pb(lst_b, lst_a, sol);
+			pa(lst_b, lst_a, sol);
 		else
-			pb(lst_b, lst_a, sol);
+			pa(lst_b, lst_a, sol);
 		ref = ft_lstlast(*lst_a)->content;
 	}
 }
@@ -91,7 +91,7 @@ void	ft_s_tob(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol)
 	{
 		rra(lst_a, sol);
 		ft_tocount_b(lst_b, (ft_lst_i(*lst_b, (*lst_a)->content)), sol);
-		pa(lst_a, lst_b, sol);
+		pb(lst_a, lst_b, sol);
 	}
 	ft_tocount_b(lst_b, ft_lstbreak(*lst_b), sol);
 	if (ft_lstsize(*lst_a) == 3)
