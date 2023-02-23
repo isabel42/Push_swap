@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/23 16:00:00 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/23 18:44:50 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,13 @@ void	ft_btoa_s(t_list **lst_a, t_list **lst_b, t_listc **sol, int v_m)
 			else
 				rra(lst_a, sol);
 		}
+		else if ((*lst_a)->content > (*lst_a)->next->content && (*lst_a)->next->content > ref )//&& (*lst_a)->next->content > (*lst_b)->content)
+			sa(lst_a, sol);
+		else if ((*lst_a)->content > ref && (*lst_b)->content > (*lst_a)->content)
+			ra(lst_a, sol);
 		else if (ref > (*lst_b)->content
 			&& (ref < (*lst_a)->content || ft_lstsize(*lst_b) == v_m))
 			rra(lst_a, sol);
-		else if ((*lst_a)->content > ref && (*lst_b)->content > (*lst_a)->content)
-			ra(lst_a, sol);
 		else if ((*lst_b)->content > ft_lstmax(*lst_a))
 			pa(lst_b, lst_a, sol);
 		else
@@ -109,8 +111,7 @@ void	ft_sort(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol)
 			ft_sort_three(lst_a, sol);
 			ft_ps_exit(lst_a, sol);
 		}
-		if (ft_lstsize(*lst_a) > value_max)
-			ft_tocount_a(lst_a, ft_lsttrouble(*lst_a), sol);
+		ft_totroube(lst_a, sol);
 		ft_ns_tob(lst_a, lst_b, value_max, sol);
 		if (ft_lstsorted(*lst_a) == 1)
 		{	

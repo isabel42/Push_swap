@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/22 22:12:32 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/23 18:43:43 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int	ft_lsttrouble(t_list *lst_a)
 	int	count;
 
 	count = 0;
-	while (lst_a->content < lst_a->next->content)
+	while (lst_a->next && lst_a->content < lst_a->next->content)
 	{
 		count++;
 		lst_a = lst_a->next;

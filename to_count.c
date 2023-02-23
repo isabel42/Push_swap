@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/16 15:45:59 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/23 18:44:27 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,17 @@ void	ft_tocount_b(t_list **lst_b, int count, t_listc **sol)
 			j++;
 		}
 	}
+}
+
+void ft_totroube(t_list **lst_a, t_listc **sol)
+{
+	if (ft_lstsorted(*lst_a) == 1)
+		ft_ps_exit(lst_a, sol);
+	ft_tocount_a(lst_a, ft_lsttrouble(*lst_a)-1, sol);
+	if ((*lst_a) && (*lst_a)->next && (*lst_a)->next->next && (*lst_a)->content > (*lst_a)->next->content && ((*lst_a)->content < (*lst_a)->next->next->content || ft_lstsorted_s((*lst_a)->next->next) == 1))
+		sa(lst_a, sol);
+	if (ft_lsttrouble(*lst_a) > 0 && ft_lstsorted(*lst_a) == 0)
+		ft_totroube(lst_a, sol);
+	if (ft_lstsorted(*lst_a) == 1)
+		ft_ps_exit(lst_a, sol);
 }

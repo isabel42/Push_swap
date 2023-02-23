@@ -42,6 +42,7 @@ int		ft_lsttrouble(t_list *lst_a);
 
 void	ft_tocount_a(t_list **lst_a, int count, t_listc **sol);
 void	ft_tocount_b(t_list **lst_a, int count, t_listc **sol);
+void 	ft_totroube(t_list **lst_a, t_listc **sol);
 
 void	ft_lstadd_back_char(t_listc **lst, t_listc *new);
 t_listc	*ft_lstlast_char(t_listc *lst);
