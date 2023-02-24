@@ -33,6 +33,7 @@ int		ft_lstsorted_rev(t_list *lst);
 int		ft_lstsorted_s(t_list *lst);
 int		ft_lstsorted_srev(t_list *lst);
 int		ft_lstmax(t_list *lst);
+int		ft_lstmin(t_list *lst);
 void	ft_printlst(t_list *lst);
 
 int		ft_lst_i(t_list *lst_a, int i);
