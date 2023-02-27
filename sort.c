@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/27 14:17:15 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:32:01 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void	ft_s_tob(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol)
 	while (ft_lstsize(*lst_b) < value_max
 		|| (ft_lstsize(*lst_a) < 6 && ft_lstsize(*lst_a) > 2))
 	{
+		rra(lst_a, sol);
 		if ((ft_lstsize(*lst_b) == 3 && ft_lstsorted(*lst_b) == 1)
 			|| (ft_lstsize(*lst_b) == 2 && ft_lstsorted_s(*lst_b) == 1))
 			sb(lst_b, sol);
@@ -113,14 +114,12 @@ void	ft_sort(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol)
 	
 	while(ft_lstsorted(*lst_a) == 0)
 	{
+		ft_totroube(lst_a, sol);
 		j = 1;
 		while(j <= i && ft_lstsorted(*lst_a) == 0)
 		{
 			if(ft_lstsize(*lst_a) < value_max)
 				value_max = ft_lstsize(*lst_a);
-			ft_totroube(lst_a, sol);
-	printf("----\nAAAAAA:");
-	ft_printlst(*lst_a);
 			ft_ns_tob(lst_a, lst_b, value_max, sol);
 			if (ft_lstsize(*lst_a) == 3 && ft_lstsorted(*lst_a) == 0)
 				ft_sort_three(lst_a, sol);
@@ -144,19 +143,8 @@ void	ft_sort(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol)
 			}
 			j++;
 		}
-		printf("size b: %d\n",ft_lstsize(*lst_b));
-
-		printf("*******\n");
-		printf("A:");
-		ft_printlst(*lst_a);
-		printf("*******\n");
-		printf("B:");
-		ft_printlst(*lst_b);
-		printf("*******\n");
+		
 		ft_btoa_s(lst_a, lst_b, sol, ft_lstsize(*lst_b));
-		printf("A:");
-		ft_printlst(*lst_a);
-		printf("\n");
 		i++;
 	}
 	ft_ps_exit(lst_a, sol);
