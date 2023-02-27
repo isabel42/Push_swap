@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/22 23:04:44 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/27 17:31:01 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	**ft_combi(int value_max, int size)
 			return (NULL);
 		}
 	}
-	while (i--)
+	while (--i)
 		table[0][i - 1] = i;
 	table = ft_combi_alloc(table, value_max, size);
 	return (table);
