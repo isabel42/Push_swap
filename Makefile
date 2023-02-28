@@ -10,6 +10,7 @@ SRCS	= main.c \
 			combi.c \
 			longest_combi.c \
 			sort.c \
+			sort_2.c \
 			opti.c \
 			opti_2.c
 
