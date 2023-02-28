@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/21 12:49:14 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/27 18:30:00 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 void	ft_optisol_rp(t_listc **sol)
 {
-	t_listc	*cp;
 	t_listc	*test;
+	t_listc	*next;
+	t_listc	*nextnext;
+	t_listc	*nextnextnext;
 
 	test = *sol;
 	while (test && test->next && test->next->next)
@@ -24,10 +26,12 @@ void	ft_optisol_rp(t_listc **sol)
 		if (ft_optisol_rp_bis(test->next->content,
 				test->next->next->content) == 1)
 		{
-			cp = test->next->next->next;
-			free(test->next);
-			free(test->next->next);
-			test->next = cp;
+			next = test->next;
+			nextnext = test->next->next;
+			nextnextnext = test->next->next->next;
+			test->next = nextnextnext;
+			free(next);
+			free(nextnext);
 			test = *sol;
 			continue ;
 		}

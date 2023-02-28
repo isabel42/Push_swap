@@ -6,16 +6,16 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/27 17:31:01 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:44:00 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
 #include "libpw.h"
 
-long long ft_fact_2(int i, int j)
+long long	ft_fact_2(int i, int j)
 {
-	long long result;
+	long long	result;
 
 	result = 1;
 	while (i > j)
@@ -26,11 +26,11 @@ long long ft_fact_2(int i, int j)
 	return (result);
 }
 
-long long ft_combicount(int n, int k)
+long long	ft_combicount(int n, int k)
 {
-	int max;
-	int min;
-	long long result;
+	int			max;
+	int			min;
+	long long	result;
 
 	max = n - k;
 	min = k;
@@ -45,7 +45,7 @@ long long ft_combicount(int n, int k)
 
 int	**ft_combi(int value_max, int size)
 {
-	int	**table;
+	int			**table;
 	long long	combi;
 	long long	i;
 

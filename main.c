@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/27 17:16:11 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:55:36 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int	main(int argc, char **argv)
 		write(2, "Error\n", 6);
 		exit (0);
 	}
-
 	lst_a = ft_lstdef(argc, argv);
 	lst_b = NULL;
 	sol = NULL;

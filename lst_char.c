@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/23 22:51:42 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/28 15:21:05 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void	ft_lstadd_back_char(t_listc **lst, t_listc *new)
 		*lst = new;
 	else
 	{
-		last = ft_lstlast_char(*lst);
+		last = ft_llastc(*lst);
 		last->next = new;
 	}
 }
 
-t_listc	*ft_lstlast_char(t_listc *lst)
+t_listc	*ft_llastc(t_listc *lst)
 {
 	while (lst)
 	{

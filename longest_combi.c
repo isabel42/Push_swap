@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/27 17:39:26 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:55:23 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 t_list	*ft_linetlstbuild(int *combi, t_list *lst, int value_max)
 {
-	t_list	*new;
-	t_list	*second;
-	int		i;
-	long long		j;
+	t_list		*new;
+	t_list		*second;
+	int			i;
+	long long	j;
 
 	i = 0;
 	j = 0;

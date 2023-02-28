@@ -25,7 +25,7 @@ RM		= rm -f
 
 AR		= ar rc
 
-CFLAGS	= -Wextra -Wall -Werror -g -fsanitize=address
+CFLAGS	= -Wextra -Wall -Werror
 
 .c.o:	
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
