@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/03/02 13:40:47 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/03/02 14:26:03 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	ft_argvok(char **argv, int i)
 {
 	int	a;
 
-	a = 0;
+	a = i;
 	while (argv[i])
 	{
 		if (ft_argvisdigit(argv[i]) == 0 || ft_argvisint(argv[i]) == 0)
@@ -94,7 +94,6 @@ void	ft_argvok(char **argv, int i)
 			exit (0);
 		}
 		i++;
-		a++;
 	}
 	if (ft_argvdup(argv) == 1)
 	{

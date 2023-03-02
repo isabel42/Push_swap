@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/03/02 13:40:53 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:14:56 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int	main(int argc, char **argv)
 	}
 	ft_argvok(argv, i);
 	lst_a = ft_lstdef(argv, i);
+	if (i == 0)
+		free(argv);
 	lst_b = NULL;
 	sol = NULL;
 	value_max = 10;

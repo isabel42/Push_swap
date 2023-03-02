@@ -31,16 +31,14 @@ CFLAGS	= -Wextra -Wall -Werror
 .c.o:	
 			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-${NAME}:	lib
-			${CC} ${CFLAGS} -o ${NAME} main.c -L. -lpushswap
-
-all:		${NAME}
-
-lib: 		${OBJS}
+${NAME}: 	${OBJS}
 				make bonus -C ./libft
 				cp ./libft/libft.a ${LIB}
 				${AR} ${LIB} ${OBJS}
 				ranlib ${LIB}
+			${CC} ${CFLAGS} -o ${NAME} main.c -L. -lpushswap -g -fsanitize=address
+
+all:		${NAME}
 
 clean:
 			make fclean -C ./libft	
