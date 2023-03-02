@@ -48,7 +48,7 @@ t_listc		*ft_llastc(t_listc *lst);
 int			ft_lstsize_char(t_listc *lst);
 void		ft_printlst_char(t_listc *sol);
 
-t_list		*ft_lstdef(int argc, char **argv);
+t_list		*ft_lstdef(char **argv, int i);
 void		ra(t_list **lstA, t_listc **sol);
 void		rra(t_list **lstA, t_listc **sol);
 void		pa(t_list **lstA, t_list **lstB, t_listc **sol);

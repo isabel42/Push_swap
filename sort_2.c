@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/28 16:24:10 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/03/02 12:34:00 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_sort(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol)
 	ft_chek_three_sorted(lst_a, lst_b, value_max, sol);
 	while (ft_lstsorted(*lst_a) == 0)
 	{
-		if (ft_lstsize(*lst_a) > 5)
+		if (i > 1)
 			ft_totroube(lst_a, sol);
 		j = 1;
 		while (j <= i && ft_lstsorted(*lst_a) == 0)
@@ -31,7 +31,8 @@ void	ft_sort(t_list **lst_a, t_list **lst_b, int value_max, t_listc **sol)
 				value_max = ft_lstsize(*lst_a);
 			ft_ns_tob(lst_a, lst_b, value_max, sol);
 			ft_chek_three_sorted(lst_a, lst_b, value_max, sol);
-			ft_s_tob(lst_a, lst_b, j * value_max, sol);
+			if (i > 1)
+				ft_s_tob(lst_a, lst_b, j * value_max, sol);
 			ft_chek_three_sorted(lst_a, lst_b, value_max, sol);
 			j++;
 		}

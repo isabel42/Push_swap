@@ -6,22 +6,21 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/27 17:24:22 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/03/02 11:44:03 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./libft/libft.h"
 #include "libpw.h"
 
-t_list	*ft_lstdef(int argc, char **argv)
+t_list	*ft_lstdef(char **argv, int i)
 {
 	t_list	*new;
 	t_list	*second;
-	int		i;
 
-	new = ft_lstnew(ft_atoi(argv[1]));
-	i = 2;
-	while (i < argc)
+	new = ft_lstnew(ft_atoi(argv[i]));
+	i++;
+	while (argv[i])
 	{
 		second = ft_lstnew(ft_atoi(argv[i]));
 		ft_lstadd_back(&new, second);

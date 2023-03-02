@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/28 16:49:27 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/03/02 12:38:25 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	ft_ps_exit(t_list **lst_a, t_listc **sol)
 	ft_optisol(sol);
 	ft_printlst_char(*sol);
 	//ft_lstprint(*lst_a);
-	printf("\nsize of sol: %d", ft_lstsize_char(*sol));
+	// printf("\nsize of sol: %d", ft_lstsize_char(*sol));
 	ft_free_lst(*lst_a);
 	ft_free_lst_char(*sol);
 	exit(0);
