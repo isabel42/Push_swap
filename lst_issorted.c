@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/28 16:36:20 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/03/02 12:58:21 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,13 +101,4 @@ int	ft_lstsorted_srev(t_list *lst)
 	if (b > 0)
 		return (0);
 	return (1);
-}
-
-void ft_lstprint(t_list *lst_a)
-{
-	while(lst_a)
-	{
-		printf("%d, ", lst_a->content);
-		lst_a = lst_a->next;
-	}
 }

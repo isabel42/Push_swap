@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/11 14:44:28 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/03/02 13:40:47 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,18 +81,26 @@ int	ft_argvisint(char *argv)
 	return (1);
 }
 
-int	ft_argvok(char **argv)
+void	ft_argvok(char **argv, int i)
 {
-	int	i;
+	int	a;
 
-	i = 1;
+	a = 0;
 	while (argv[i])
 	{
 		if (ft_argvisdigit(argv[i]) == 0 || ft_argvisint(argv[i]) == 0)
-			return (0);
+		{
+			write(2, "Error\n", 6);
+			exit (0);
+		}
 		i++;
+		a++;
 	}
 	if (ft_argvdup(argv) == 1)
-		return (0);
-	return (1);
+	{
+		write(2, "Error\n", 6);
+		exit (0);
+	}
+	if (i == a)
+		exit (0);
 }

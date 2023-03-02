@@ -26,13 +26,12 @@ typedef struct c_list
 int			ft_argvdup(char **argv);
 int			ft_argvisdigit(char *argv);
 int			ft_argvisint(char *argv);
-int			ft_argvok(char **argv);
+void		ft_argvok(char **argv, int i);
 
 int			ft_lstsorted(t_list *lst);
 int			ft_lstsorted_rev(t_list *lst);
 int			ft_lstsorted_s(t_list *lst);
 int			ft_lstsorted_srev(t_list *lst);
-void 	ft_lstprint(t_list *lst_a);
 
 int			ft_lst_i(t_list *lst_a, int i);
 int			ft_lst_i_bis(t_list *lst_a, int i, int count, t_list *first);
