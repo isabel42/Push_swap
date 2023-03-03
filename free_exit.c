@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/03/02 12:58:34 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/03/03 14:43:05 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,26 @@
 #include "libpw.h"
 
 void	ft_free_pp_int(int **s)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		while (s[i][j])
+		{
+			s[i][j] = 0;
+			j++;
+		}
+		free(s[i]);
+		i++;
+	}
+	free(s);
+}
+
+void	ft_free_pp_char(char **s)
 {
 	int	i;
 	int	j;

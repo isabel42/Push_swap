@@ -60,6 +60,7 @@ void		pb(t_list **lstA, t_list **lstB, t_listc **sol);
 void		sb(t_list **lstA, t_listc **sol);
 
 void		ft_free_pp_int(int **s);
+void		ft_free_pp_char(char **s);
 void		ft_free_lst(t_list *lst);
 void		ft_free_lst_char(t_listc *lst);
 void		ft_ps_exit(t_list **lst_a, t_listc **sol);

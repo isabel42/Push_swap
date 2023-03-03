@@ -36,7 +36,7 @@ ${NAME}: 	${OBJS}
 				cp ./libft/libft.a ${LIB}
 				${AR} ${LIB} ${OBJS}
 				ranlib ${LIB}
-			${CC} ${CFLAGS} -o ${NAME} main.c -L. -lpushswap -g -fsanitize=address
+			${CC} ${CFLAGS} -o ${NAME} main.c -L. -lpushswap
 
 all:		${NAME}
 

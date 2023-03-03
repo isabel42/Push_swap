@@ -6,7 +6,7 @@
 /*   By: itovar-n <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 15:19:15 by itovar-n          #+#    #+#             */
-/*   Updated: 2023/02/28 16:23:57 by itovar-n         ###   ########.fr       */
+/*   Updated: 2023/03/03 12:22:43 by itovar-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,24 @@ void	ft_ns_tob(t_list **lst_a, t_list **lst_b, int v_m, t_listc **sol)
 {
 	int	i;
 	int	j;
+	int	count;
 	int	*best;
 
 	i = 1;
 	j = 0;
+	count = 0;
 	best = ft_longestlist(*lst_a, v_m);
 	while (i <= v_m && best)
 	{
 		if (best [j] && i == best[j])
 		{
-			ra(lst_a, sol);
+			count++;
 			j++;
 			i++;
 			continue ;
 		}
+		ft_tocount_a(lst_a, count, sol);
+		count = 0;
 		ft_ns_tob_notbest(lst_a, lst_b, sol);
 		i++;
 	}
